@@ -1,0 +1,164 @@
+{
+  "packaging1":[
+      {
+          "name":"语文",
+          "img":"http://localhost:8080/static/images/tx1.jpg"
+      },
+      {
+        "name":"理数",
+        "img":"http://localhost:8080/static/images/lsx.jpg"
+      },
+      {
+        "name":"文数",
+        "img":"http://localhost:8080/static/images/ws.jpg"
+      },
+      {
+        "name":"英语",
+        "img":"http://localhost:8080/static/images/yx.jpg"
+     
+     },
+     {
+        "name":"理综",
+        "img":"http://localhost:8080/static/images/lz.jpg"
+       
+      },
+     {
+        "name":"文综",
+        "img":"http://localhost:8080/static/images/wz.jpg"
+        
+      },
+     {
+        "name":"物理",
+        "img":"http://localhost:8080/static/images/wl.png"
+       
+     },
+     {
+        "name":"化学",
+        "img":"http://localhost:8080/static/images/hx.jpg"
+    
+     },
+     {
+        "name":"生物",
+        "img":"http://localhost:8080/static/images/sw.jpg"
+      
+     },
+     {
+        "name":"历史",
+        "img":"http://localhost:8080/static/images/ls.jpg"
+       
+     },
+     {
+        "name":"地理",
+        "img":"http://localhost:8080/static/images/dl.jpg"
+     },
+     {
+        "name":"政治",
+        "img":"http://localhost:8080/static/images/zz.jpg"
+        
+     }
+  ],
+ "packaging2":[
+    {
+        "name":"语文",
+        "img":"http://localhost:8080/static/images/tx1.jpg"
+    
+    },
+    {
+        "name":"数学",
+        "img":"http://localhost:8080/static/images/sx.jpg"
+       
+    },
+    {
+        "name":"英语",
+        "img":"http://localhost:8080/static/images/yx.jpg"
+       
+    },
+    {
+        "name":"物理",
+        "img":"http://localhost:8080/static/images/wz.jpg"
+        
+     },
+     {
+        "name":"化学",
+        "img":"http://localhost:8080/static/images/hx.jpg"
+       
+     },
+     {
+        "name":"生物",
+        "img":"http://localhost:8080/static/images/sw.jpg"
+       
+     },
+     {
+        "name":"历史",
+        "img":"http://localhost:8080/static/images/ls.jpg"
+      
+     },
+     {
+        "name":"地理",
+        "img":"http://localhost:8080/static/images/dl.jpg"
+      
+     },
+     {
+        "name":"政治",
+        "img":"http://localhost:8080/static/images/zz.jpg"
+      
+     },
+     {
+        "name":"信息技术",
+        "img":"http://localhost:8080/static/images/xxjs.jpg"
+      
+     },
+     {
+        "name":"通用技术",
+        "img":"http://localhost:8080/static/images/tyjs.jpg"
+       
+     }
+ ],
+ "packaging3":[
+    {
+        "name":"语文",
+        "img":"http://localhost:8080/static/images/tx1.jpg"
+      
+    },
+    {
+        "name":"数学",
+        "img":"http://localhost:8080/static/images/sx.jpg"
+      
+    },
+    {
+        "name":"英语",
+        "img":"http://localhost:8080/static/images/yx.jpg"
+       
+    },
+    {
+        "name":"物理",
+        "img":"http://localhost:8080/static/images/wz.jpg"
+       
+     },
+     {
+        "name":"化学",
+        "img":"http://localhost:8080/static/images/hx.jpg"
+      
+     },
+     {
+        "name":"生物",
+        "img":"http://localhost:8080/static/images/sw.jpg"
+        
+     },
+     {
+        "name":"历史",
+        "img":"http://localhost:8080/static/images/ls.jpg"
+       
+     },
+     {
+        "name":"地理",
+        "img":"http://localhost:8080/static/images/dl.jpg"
+       
+     },
+     {
+        "name":"政治",
+        "img":"http://localhost:8080/static/images/zz.jpg"
+        
+     }
+ ]
+}
