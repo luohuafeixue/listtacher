@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>__proto__</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 
+			 * prototype：出现在函数中。
+			 * __proto__：出现在对象里。__proto__实际上是一个指针，指向了构造该对象的类的原型。
+			 * 也就是说__proto__就是对构造函数的原型进行引用。
+			 * 
+			 * */
+			
+			function Person(name,age) {
+				this.name = name;
+				this.age = age;	
+				this.say = function() {
+					console.log(this.name + '今天还好啊！');
+				};
+			}
+			
+			//原型上添加方法
+			Person.prototype.run = function() {
+				console.log(this.name + '跑得快');
+			}
+			
+			//原型上添加属性
+//			Person.prototype.name = '小圆';
+			
+			//实例化的对象
+			var p1 = new Person('小花',16);
+			console.log(p1);
+			console.dir(Person);
+			console.log(Person.prototype);
+			
+			console.log('p1.__proto__ == Person.prototype:',p1.__proto__ == Person.prototype);
+			p1.__proto__.run();
+		</script>
+	</body>
+</html>

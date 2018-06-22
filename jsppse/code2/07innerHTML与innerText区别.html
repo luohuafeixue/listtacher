@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			innerHTML与innerText
+			
+			可以获取和设置标签的内容
+			innerHTML：支持HTML标签代码
+			innerText：不支持HTML标签代码,如：但是要上自习
+			
+			
+		-->
+		<div id="text">
+			
+		</div>
+		<script type="text/javascript">
+			//向body中输出文字   明天不上课
+//			document.body.innerHTML+="<span>明天不上课</span>";
+//			document.body.innerText+="但是要上自习";
+			var name1=["张三","李四"];
+			var t=document.getElementById("text");
+			var tt=document.getElementsByTagName("table");
+//			t.innerText+="但是要上自习";
+//			t.innerHTML+="<span>明天不上课</span>";
+			t.innerHTML+="<table border='1' cellspacing='0' cellpadding='0' id='tt'><tr><th>姓名：</th><th>性别</th><th>年龄</th></tr>";
+			for (var i = 0; i < name1.length; i++) {
+				//name[i]
+				t.innerHTML+="<tr><td>Data</td><td>Data</td><td>Data</td></tr>";
+			console.log(tt);
+			};
+			t.innerHTML+="</table>";
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包的加强版</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 1、闭包的概念：
+			 	1）函数A中创建函数B，函数B调用了函数A的局部变量。
+			 	2）函数B可以在函数A的外部调用。
+			 	
+			 2、怎样实现函数A外面调用函数B？
+			 	
+			
+			* */
+			//方式一
+			/*function A() {
+				var id = 0;
+				function B() {
+					console.log(id);
+				}
+				
+				window.B = B;
+			}
+			
+			A();
+			//最终实现
+			B();*/
+			
+			//方式一优化:
+			(function() {
+				var id = 0;
+				function B() {
+					console.log(id);
+				}
+				
+				window.B = B;
+			})();
+			
+			B();
+			
+		</script>
+	</body>
+</html>

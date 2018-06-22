@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包的应用</title>
+	</head>
+	<body>
+		<script>
+			/*
+			   1、闭包的小结：
+			   		内部函数可以调用函数外部的变量，该变量不会立即销毁 
+			 * 
+			 * */
+			
+			//场景:就是延迟一段时间后还是按照0-9递增输出
+			//源代码
+			//无论setTimeout设置多长时间，都要去排队
+			/*for(var i = 0; i < 10; i++) {
+				setTimeout(function() { //异步
+					console.log(i);
+				},0);
+			}*/
+			
+			//改进代码
+			for(var i = 0; i < 10; i++) {
+				(function(a){
+//					console.log(a);
+					setTimeout(function() {
+						console.log(a);
+					},1000);
+				})(i);
+			}
+			
+			
+			//简化
+			for(var i = 0; i < 10; i++) {
+				(function() {
+					
+				})(0)
+			}
+			
+			for(var i = 0; i < 10; i++) {
+				(function() {
+					
+				})(1)
+			}
+			
+			for(var i = 0; i < 10; i++) {
+				(function() {
+					
+				})(2)
+			}
+			
+			for(var i = 0; i < 10; i++) {
+				(function() {
+					
+				})(3)
+			}
+			
+			//。。。
+			
+			
+			
+			/*
+			for(var i = 0; i < 10; i++) {
+				(function() {
+					
+				})(0)
+			}
+			for(var i = 0; i < 10; i++) {
+				()(1)
+			}
+			for(var i = 0; i < 10; i++) {
+				()(2)
+			}
+			* 
+			* 
+			* */
+		</script>
+	</body>
+</html>

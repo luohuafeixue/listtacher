@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#circle{
+				width:100px;
+				height:100px;
+				border-radius: 50px;
+				background: green;
+				position: absolute;
+				top:0px;
+				left:50px;
+			}
+			#squre{
+				width:100px;
+				height:100px;
+				background: red;
+				position: absolute;
+				top:0px;
+				right:0px;
+			}
+			#circle1{
+				width:100px;
+				height:100px;
+				border-radius: 50px;
+				background: brown;
+				position: absolute;
+				top:0px;
+				left:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="circle"></div>
+		<div id="squre"></div>
+		<div id="circle1"></div>
+		<script type="text/javascript">
+			
+			//动画函数封装目的：可以多次调用
+			
+			/*参数说明
+			* animationFn(placeEnd,placeStart,moveTime,eleTarget,moveType)动画效果函数
+			* placeEnd 运动的终点px
+			* placeStart 运动的起点px
+			* moveTime 完成动画运动的时间 (ms 毫秒)
+			* eleTarget 要运动的目标元素
+			* moveType 动画运动的类型,可取值left|right|width|height
+			*/
+			
+			//步骤流程
+			/*
+			 1.先做一个简单函数
+			 2.再来抽取函数，封装成完整动画函数
+			 
+			 * */
+			function animationFn(eleTarget,placeEnd,moveTime,moveType){
+				//步骤1.找到目标对象
+				//var circle=document.getElementById("circle");
+				
+				//步骤2.获取对象中外部的CSS样式
+				//IE低版本中：对象.currentStyle  
+				//高版本IE和其它浏览器     window.getComputedStyle(对象)   
+				var eleStyle=eleTarget.currentStyle||window.getComputedStyle(eleTarget);
+				
+				//步骤3.设置动画所需的相关参数
+					//1.获取对象的样式（起点）
+					var placeStart=parseInt(eleStyle[moveType]);
+					
+					//2.设置终点位置
+					//var placeEnd=1000;
+					
+					//3.获取运动总距离
+					var distance=placeEnd-placeStart;
+					
+					//4.设置运动总时间
+					//var moveTime=3000;
+					
+					//5.获取速度
+					var speed=distance/moveTime;
+					
+					//6.设置单次运动时间
+					var spaceTime=100;
+				
+				//步骤4.设置周期运动函数
+				var moveId=setInterval(function(){
+					//1.运动的距离(每一次运动的距离)
+					placeStart+=speed*spaceTime;
+					console.log(placeStart);
+					//2.把新获取的值赋给对象
+					//eleTarget.style[moveType]=placeStart+"px";
+					
+					
+					//3.达到终点位置时停止运动,
+					//运动总距离和单次运动距离除不尽时，终点的距离会大设定值
+					//让最后到达的距离＝终点的距离eleTarget.style[moveType]=placeEnd+"px";
+					if(placeStart>placeEnd){
+						clearInterval(moveId);
+						eleTarget.style[moveType]=placeEnd+"px";
+					}else{
+						eleTarget.style[moveType]=placeStart+"px";
+					}
+					
+				},spaceTime);
+			}
+			
+			var circle=document.getElementById("circle");
+			animationFn(circle,1000,3000,'left');
+			
+			var squre=document.getElementById("squre");
+			animationFn(squre,1000,3000,'right');
+			
+			var circle1=document.getElementById("circle1");
+			animationFn(circle1,1000,3000,'top');
+			/*
+			 注意：
+			 	函数中   eleTarget不需要引号
+			 	moveType：需要引号，把方位词作为字符串传入
+			 * */
+		</script>
+	</body>
+</html>

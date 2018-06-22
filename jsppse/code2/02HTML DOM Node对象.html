@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+	</head>
+	<body>
+		HTML DOM Node对象
+		<!--
+			HTML DOM Node对象
+			
+				HTML文档中的每一个成员都是一个节点对象，节点对象具有自己的属性和方法
+				
+				1.整个文件就是一个文档节点      document
+				2.网页中的标签都是一个元素节点    Element
+				3.文字就是文本节点    （回车，空格也是文本节点）   Text
+				4.标签中的属性就是属性节点    Attribute
+				
+				Node:表示节点（所有对象就是节点）
+				
+				
+			1.找到HTML节点和Body节点	
+			
+				document.documentElement  -> html标签
+				document.body  ->body标签
+				
+				属性：
+					clientWidth:窗口宽度
+					clientHeight:窗口高度
+			
+			
+				总结：
+					1.宽度一样，高度不一样
+					2.document.documentElement主要用于制作网页中的遮罩层
+			
+		-->
+		<script src="js/fn.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			l(document.documentElement);
+			l(document.body);
+			
+			//HTML标签的宽高  指的是窗口宽高，会受控制台的影响
+			l(document.documentElement.clientWidth+"_"+document.documentElement.clientHeight);
+			l(document.body.clientWidth+"_"+document.body.clientHeight);
+		</script>
+	</body>
+</html>

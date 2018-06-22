@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原型的应用</title>
+	</head>
+	<body>
+		<script>
+			/*
+			  1、内置对象
+			      Array  Object  String  Number Boolean Function
+			      
+			  2、扩展内置对象方法：
+			      	内置对象.prototype.方法名
+			 * 
+			 * */
+			
+			//应用：实现删除数组中某一位数的方法
+			//基于splice方法
+			Array.prototype.remove = function(pos) {
+				this.splice(pos,1);
+			}
+			
+			var arr = ['a','b','c','d'];
+			
+			arr.remove(0);
+			console.log(arr);
+			
+			
+		</script>
+	</body>
+</html>

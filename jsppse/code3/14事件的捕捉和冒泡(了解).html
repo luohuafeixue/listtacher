@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#d1,#d2,#d3{
+				padding:100px;
+			}
+			#d1{
+				background: brown;
+			}
+			#d2{
+				background: green;
+			}
+			#d3{
+				background: bisque;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			事件的捕捉和冒泡(了解)
+			
+			事件流：
+				事件发生时，事件传递的过程
+				
+			事件产生情况
+				事件捕捉     从外面到里面         d1--d2--d3
+				
+				事件冒泡：  从里面到外面       d3--d2--d1
+				
+				
+			IE:
+				冒泡阶段
+				
+			非IE：
+				捕捉阶段
+				
+				冒泡阶段
+				
+				
+			stopPropagation(); 阻止冒泡事件   是Event对象里的方法
+			
+		-->
+		<div id="d1">
+			<div id="d2">
+				<div id="d3"></div>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			//1.找到所有对象
+			
+			var d1=document.getElementById("d1");
+			var d2=document.getElementById("d2");
+			var d3=document.getElementById("d3");
+			
+			//2.注册事件
+			//useCapture：是否使用捕捉（冒泡事件），
+			//一般用 false(冒泡方式)  ｜ true(捕捉方式)
+			d1.addEventListener("click",function(){
+				console.log("div1");
+				//阻止冒泡事件
+				event.stopPropagation();
+			},false);
+			d2.addEventListener("click",function(){
+				console.log("div2");
+				//阻止冒泡事件
+				event.stopPropagation();
+			},false);
+			d3.addEventListener("click",function(){
+				console.log("div3");
+				//阻止冒泡事件
+				event.stopPropagation();
+			},false);
+		</script>
+	</body>
+</html>

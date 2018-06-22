@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数高级使用</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 1、arguments对象？
+			     只能够在函数内部使用；
+			  arguments还是一个伪数组。
+			     记录了实参的个数
+			     
+			 2、arguments的使用？
+			   arguments[下标]
+			   arguments.callee:就是指函数本身
+			   
+			 3、arguments有什么作用？
+			         求和
+			    
+			   
+			 * */
+			//返回两个或者更多的值
+			/*function fn() {
+				var a = 10;
+				var b = 20;
+				var c = a + b;
+				return [a,b,c];
+			}
+			console.log(fn());*/
+			/*function fn(a,b,c,d) { //这里的参数是形式参数
+//				console.log(arguments[2]);
+				return a + b + c + d
+			}
+			fn(1,2,3,4); //实参*/
+			
+			function fn() {
+				var sum = 0;
+				for(var i =0; i < arguments.length; i++) {
+					sum +=arguments[i];
+				}
+				console.log(arguments);
+				console.log(arguments.callee);
+				
+				return sum;
+			}
+			
+			console.dir(fn(1,2,3,4,5));
+		</script>
+	</body>
+</html>

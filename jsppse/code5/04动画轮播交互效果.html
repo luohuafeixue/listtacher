@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#bannerBF{
+				width: 520px;
+				height: 280px;
+				margin: 100px auto;
+				position: relative;
+				border: 2px solid red;
+				overflow: hidden;
+			}
+			#imgBox{
+				width:3000px;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			#imgBox li{
+				float:left;
+			}
+			/*数字*/
+			#numList{
+				list-style: none;
+				margin: 0;
+				padding: 0;
+				
+				position: absolute;
+				bottom:10px;
+				left: 200px;
+				
+				width: 90px;
+			}
+			#numList li{
+				
+				float: left;
+				width: 20px;
+				line-height: 20px;
+				border-radius:10px ;
+				background: papayawhip;
+				text-align: center;
+				margin: 0 5px;
+				
+			}
+			#numList .current{
+				background: red;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="bannerBF">
+			<!--图片列表-->
+			<ul id="imgBox" >
+				<li><img src="img/1.jpg"/></li>
+				<li><img src="img/2.jpg"/></li>
+				<li><img src="img/3.jpg"/></li>
+			</ul>
+			<!--数字圆点-->
+			<ul id="numList">
+				<li class="current">1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+		
+		<input type="button" name="" id="prev" value="上一张" />
+		<input type="button" name="" id="next" value="下一张" />
+		
+		<!--
+			原理：
+				总共三张图，需周期切换这三张图，
+				
+				为了让动画更流畅，把第一张克隆出来，插入到最后一张的后面，用于做过渡效果
+				
+				实现的功能：
+				
+				1焦点图的自动播放
+				2.上一张的点击切换
+				3.下一张的点击切换
+				
+		-->
+		
+		<script type="text/javascript">
+			//1.找到对象
+			//图片对象
+			var imgbox=document.getElementById("imgBox");
+			var imgs=imgbox.getElementsByTagName("li");
+			
+			//按钮对象
+			var next=document.getElementById("next");
+			var prev=document.getElementById("prev");
+			
+			//数字圆点
+			var nums=document.getElementById("numList").getElementsByTagName("li");
+			
+			//2.克隆第一张图片，并插入到图片列表最后一张
+			/*
+			 cloneNode(参数)
+			 说明：
+			 	参数：默认为false     有两个值  true  |false
+			 	
+			 	true:表示克隆节指定节点属性以及下面所有节点
+			 	false:表示只能克隆对应的标签
+			 
+			 * */
+			var liFb=imgs[0].cloneNode(true);
+			imgbox.appendChild(liFb);
+			
+			//console.log(liFb);
+			//3设置计数
+			var cont=0;
+			
+			//4.设置下一页的函数
+			function nextPage(){
+				//计数计自增1
+				if(cont>=imgs.length-1){
+					cont=1;
+					//console.log(11);
+				}else{
+					cont++;
+				}
+				
+				console.log(cont);
+				//设置运动的距离
+				var leftV=-520*cont;
+				
+				//把新值赋给对象
+				
+				imgbox.style.left=leftV+"px";
+				
+				//怎么点亮计数图标；
+				
+					//清掉li上所有的样式
+					for (var i = 0; i < nums.length; i++) {
+						nums[i].className="";
+					}
+					
+					//显示对应图标判定
+					if(cont<imgs.length-1){
+						nums[cont].className="current";
+					}else if(cont==imgs.length-1){
+						nums[0].className="current";
+					}
+					clearInterval(moveId);
+			}
+			//5.注册事件
+			next.onclick=nextPage;
+			
+			//上一页效果的制作
+			
+			function prevPage(){
+				//计数自减1
+				if(cont==0){
+					cont=imgs.length-2;
+				}else{
+					cont--;	
+				}
+				
+				
+				//单击cont次获取的距离
+				
+				var leftV=-520*cont;
+				
+				//把新值赋给指定对象
+				imgbox.style.left=leftV+"px";
+				
+				
+				//怎么点亮计数图标；
+				
+					//清掉li上所有的样式
+					for (var i = 0; i < nums.length; i++) {
+						nums[i].className="";
+					}
+					
+					//显示对应图标判定
+					if(cont<imgs.length-1){
+						nums[cont].className="current";
+					}else if(cont==imgs.length-1){
+						nums[0].className="current";
+					}
+				clearInterval(moveId);
+			}
+			
+						//上一页效果的制作
+			
+			function autoPlay(){
+				//计数计自增1
+				if(cont>=imgs.length-1){
+					cont=1;
+					//console.log(11);
+				}else{
+					cont++;
+				}
+				
+				console.log(cont);
+				//设置运动的距离
+				var leftV=-520*cont;
+				
+				//把新值赋给对象
+				
+				imgbox.style.left=leftV+"px";
+				
+				//怎么点亮计数图标；
+				
+					//清掉li上所有的样式
+					for (var i = 0; i < nums.length; i++) {
+						nums[i].className="";
+					}
+					
+					//显示对应图标判定
+					if(cont<imgs.length-1){
+						nums[cont].className="current";
+					}else if(cont==imgs.length-1){
+						nums[0].className="current";
+					}
+			}
+			//给上一页按钮注册事件
+			prev.onclick=prevPage;
+			moveId=setInterval(autoPlay,1000);
+			
+			
+			//鼠标移入移出的效果
+			var banner=document.getElementById("bannerBF");
+			
+			//移入事件
+			banner.onmouseover=function(){
+				clearInterval(moveId);
+			}
+			
+			//移出事件
+			banner.onmouseout=function(){
+				moveId=setInterval(autoPlay,1000);
+			}
+			
+		</script>
+	</body>
+</html>

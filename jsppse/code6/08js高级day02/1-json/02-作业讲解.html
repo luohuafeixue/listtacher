@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//作业：扩展Array类型，提供inArray方法用来检查数组中是否包含”张三”
+			//方法一：
+			/*Array.prototype.inArray = function(str){
+				for(var i = 0; i < this.length; i++) {
+					if(this[i] == str) {
+						return true;
+					}
+				}
+				return false;
+			}*/
+			//方法二：
+			/*Array.prototype.inArray = function(str) {
+				var ifTrue = false;
+				this.forEach(function(value) {
+					if(value  == str) {
+						ifTrue = true;
+					}
+				});
+				return ifTrue;
+			}*/
+			
+			//方法三：
+			Array.prototype.inArray = function(str) {
+				if(this.indexOf(str) > -1) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			
+			
+			var arr = ['李四','张三','王五'];
+			console.log(arr.inArray('张三'));
+		</script>
+	</body>
+</html>

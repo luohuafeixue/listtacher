@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="post">
+			<input type="text" id="userName" value="张1三" />
+			<input type="submit" value="提交"/>
+		</form>
+		<!--
+			1什么是正则表达式？
+			正则表达式，又称规则表达式。
+			（英语：Regular Expression，在代码中常简写为regex、regexp或RE（推荐））
+			正则表达式是描述字符模式的对象，以一个用简单方式描述或者匹配一系列符合某个句法规则的字符串.
+			
+			2.正则表达式能做什么？
+				正则表达式主要用于：
+				
+				检查字符串的合法性（表单验证），
+				提取字符串中信息（爬虫，百度爬虫，大数据相关）
+				替换字符串（屏蔽相应字符，查找数据）
+			
+			3.怎么使用正则表达式？
+			
+			正则表达式是一种字符模式对象（RegExp）
+			
+			
+			定义规则的方式：
+			
+			1、new构造方式
+			 var r = new RegExp(“定义的规则”);
+			
+			2、字面量方式（推荐）
+			var r = /定义的规则/;
+			
+			
+			4.正则相关的方法
+			
+			exec()	检索字符串中指定的值。返回找到的值，并确定其位置。
+			
+			test()	检索字符串中指定的值(重点)
+			
+			test表示检索字符串   匹配的规则.test(需要匹配的文字)
+			如果能匹配，则返回 true 如果不能匹配，则返回 false。
+		-->
+		
+		<script type="text/javascript">
+			//1.定义规则
+			var re=new RegExp("test");
+			
+			//2.匹配的对象（string）
+			var str="1111test";
+			
+			
+			//匹配
+			console.log(re.test(str));
+			
+			//实例：
+			//1.找到对象
+				var userName=document.getElementById("userName");
+			//2.定义规则
+				var reuser =/张三/;
+			//3.需要匹配的对象
+				var struser=userName.value;
+			
+			//4.是否合法
+			if(reuser.test(struser)){
+				alert("用户名合法");
+			}else{
+				alert("请重新输入用户名，用户名不合法");
+			}
+			
+		</script>
+	</body>
+</html>

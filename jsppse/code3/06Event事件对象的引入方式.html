@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			Event事件对象的引入方式
+			
+			作用：获取event事件中的属性和方法
+			
+			前提：
+				不同浏览器之间有兼容性问题
+				
+				IE：不需要在函数中传入对应的参数，可以直接找到event对象的属性和方法
+				
+				FF：必需通过指定参数传的方式，来找到event对象的属性和方法
+			
+			
+			
+			
+			
+		-->
+		<input type="button"  value="获取event对象" onclick="fn(event)"/>
+		
+		
+		
+		<script type="text/javascript">
+				function fn(e){
+					/*//查看event对象里的属性和方法(IE) 
+					//遇到的问题：FF找不到对应的event事件的属性和方法
+					//console.log(window.event);
+					
+					//通过具体属性clientX,clientY
+					//console.log(window.event.clientX,window.event.clientY);
+					e=window.event;
+					
+					
+					//FF中
+					e=event;
+					console.log(e);*/
+					
+					
+					//IE和FF兼容
+					
+					e=e||window.event;
+					
+					console.log(e.clientX,e.clientY);
+				}
+				
+				
+		</script>
+	</body>
+</html>

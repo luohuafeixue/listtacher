@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			Event事件对象（找事件源）
+			
+				事件发生谁的身上，就是事件源
+				
+				
+				IE中：
+					srcElement:获取事件源
+					
+					
+				标准：
+					target:获取事件源
+		-->
+		<input type="button" value="1" onclick="sjy(event)"/>
+		<input type="button" value="2" onclick="sjy(event)"/>
+		<input type="button" value="3" onclick="sjy(event)"/>
+		<input type="button" value="4" onclick="sjy(event)"/>
+		
+		
+		<script type="text/javascript">
+			function sjy(e){
+				//IE和FF兼容性
+				e=e||window.event;
+				//IE中：srcElement:获取事件源
+				var ie=e.srcElement;
+				//标准：target:获取事件源
+				var w3c=e.target;
+				console.log("IE:"+ie);
+				console.log("标准"+w3c);
+				
+			}
+			
+			//需求：点击对应的input标签，让值加一操作
+			/*function sjy(e){
+				//IE和FF兼容性
+				e=e||window.event;
+				
+				//IE中：srcElement:获取事件源
+				var sjY=e.srcElement||e.target;
+				sjY.value=parseInt(sjY.value)+1;
+				
+			}*/
+		</script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			事件注册三种方式（重点）
+			
+			方式1：
+				直接在标签上面添加事件句柄
+				
+				语法 ：
+					1.在标签上面添加       on+事件名称＝“事件处理函数”
+					
+					2.定义一个事件处理函数
+						function 函数名称（）{
+							代码块。。。。
+						}
+					
+					
+					注意：标签上的事件句柄可以是匿名函数，也可以是指定的 方法（函数）
+					
+					
+			方式2：通过DOM来添加事件句柄
+			
+				
+				语法：
+					1.找到指定需要添加的DOM对象（标签）
+					
+					2.
+						对象.事件的名称＝函数的名称  
+						对象.事件的名称＝function (){};
+		-->
+		
+		<a href="#" onclick="fn()">源码时代</a>
+		
+		<script type="text/javascript">
+			function fn(){
+				alert(111);
+			}
+		</script>
+		
+		
+		
+		
+		<img src="img/px.jpg" id="img"/>
+		
+		<script type="text/javascript">
+			//1.找到img对象
+			var img=document.getElementById("img");
+			//2.注册事件
+//			img.onclick=function (){
+//				alert("你点对了，就是我");
+//			}
+
+
+
+			//定义函数
+			function fn(){
+				alert("自定义函数");
+			}
+			
+			//注册到指定对象
+			img.onclick=fn;
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			事件处理函数返回值
+			
+			当某些事件发生时，浏览器会自动执行默认的动作。如：a链接默认的跳转事件    
+			
+			返回值主要用于处理浏览器默认的动作，返回true,表示执行默认操作，返回false 表示阻止默认操作
+			
+			使用的是：retrun  布尔值；
+		-->
+		
+		<a href="http://www.itsource.cn" onclick="return fn()">源码时代教育</a>
+		<script type="text/javascript">
+			function fn(){
+				if(confirm("你确定删除吗？")){
+					return true;
+				}else{
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

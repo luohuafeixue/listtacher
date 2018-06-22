@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			#myform{
+				width: 300px;
+				padding: 25px;
+				margin: 100px auto 0;
+			}
+			#myform p{
+				margin-top:20px;
+				
+				position: relative;
+			}
+			#userName,#pwd,#btn{
+				width:300px;
+				height:40px;
+			}
+			#userName,#pwd{
+				text-indent: 45px;
+			}
+			#myform p span{
+				width:40px;
+				height:44px;
+				display: block;
+				background: #ccc;
+				text-align: center;
+				line-height: 52px;
+				
+				position: absolute;
+				top:1px;
+				left: 1px;
+			}
+			#delIcon{
+				position: absolute;
+				right: 5px;
+    			top: 13px;
+    			display: none;
+			}
+			#btn{
+				overflow: hidden;
+			    vertical-align: middle;
+			    line-height: 42px;
+			    font-size: 16px;
+			    font-weight: 700;
+			    color: #fff;
+			    background: #f40;
+			    border-radius: 3px;
+			    border: none;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" method="post" id="myform">
+			<p>
+				<input type="text" name="userName" id="userName" value="" placeholder="会员名/邮箱/手机号"/>
+				<span>
+					<img src="img/icon1.png"/>
+				</span>
+				<img src="img/delIcon.png" id="delIcon"/>
+			</p>
+			<p>
+				<input type="password" name="pwd" id="pwd" value=""/>
+				<span>
+					<img src="img/icon2.png"/>
+				</span>
+			</p>
+			<input type="submit" id="btn" value="登录"/>
+		</form>
+		<script type="text/javascript">
+			/*需求：
+			 * 1.点击输入框获取焦点，清空提示文字
+			 * 
+			 * 有输入时，清空提示文字
+			 * 
+			 * 没有输入时，显示提示文字
+			 * 
+			 * 2.有输入时，显示册除的叉图标，并可以点击删除文字，显示提示文字
+			 * 无输入时，不显示册除的叉图标
+			 * 
+			*/
+			
+			//实现的步骤：
+			//点击输入框获取焦点，清空提示文字
+			//步骤1.找到输入框对象
+			 var userName=document.getElementById("userName");
+			 //步骤2.事件注册     onfocus   表示一个输入框获取焦点
+			 
+			 //获取焦点
+			 userName.onfocus=function(){
+			 	//2-1,把placeholder设置为空
+			 	userName.placeholder="";
+			 }
+			 
+			 //失去焦点   onblur  表示一个输入框失去焦点
+			 
+			 userName.onblur=function(){
+			 	//2-2,把placeholder设置为提示
+			 	userName.placeholder="会员名/邮箱/手机号";
+			 }
+			 
+//---------------------------------------------------------------------------------	 
+			 //2显示册除的叉图标
+			 //步骤1.获取删除图标对象
+			 var delIcon=document.getElementById("delIcon");
+			 //如果输入框的value大于0 是，显示删除的图标
+			//onkeyup  按键弹起来时触发
+			 userName.onkeyup=function(){
+			 	 //判定按键操作    就是判定字符串的长度
+			 	 //判定显示或隐藏删除图标
+			 	if(userName.value.length>0){
+			 		delIcon.style.display="block";
+			 	}else{
+			 		delIcon.style.display="none";
+			 	}
+			 }
+			 
+			 //步骤2.注册点击事件
+			 delIcon.onclick=function(){
+			 	userName.value="";
+			 	//把自己隐藏起来
+			 	delIcon.style.display="none";
+			 }
+			 
+			 //onpaste 事件在用户向元素中粘贴文本时触发(了解)
+			 userName.onpaste=function(){
+			 	if(userName.value.length>0){
+			 		delIcon.style.display="block";
+			 	}else{
+			 		delIcon.style.display="none";
+			 	}
+			 }
+			 
+			 
+		</script>
+	</body>
+</html>

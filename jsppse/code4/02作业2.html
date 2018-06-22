@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#menu{
+				margin: 0;
+				padding: 0 10px;
+				list-style: none;
+				line-height: 30px;
+				border: 1px solid #ccc;
+				position: absolute;
+				top:0;
+				left:0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			2.自定义一个浏览器右键菜单，单击右键是显示它
+		-->
+		<!--1.制作一个浏览器右键菜单-->
+		<ul id="menu" style="width:100px">
+			<li>新建</li>
+			<li>另存为</li>
+			<li>保存</li>
+			<li>退出</li>
+		</ul>
+		<script type="text/javascript">
+			//2.动态显示菜单，并且位置为鼠标右击的位置
+			
+			//2－1找到对象
+			var rightM=document.getElementById("menu");
+			//2-2 阻止右键默认的菜单
+			//oncontextmenu  鼠标右键事件     指定返回值   true   执行默认操作，  false 阻止执行默认操作
+			document.documentElement.oncontextmenu=function(e){
+				
+				//alert(22);
+				//2-3  显示菜单
+				rightM.style.display="block";
+				
+				//2-4 兼容性
+				e=e||window.event;
+				
+				//2-5 获取鼠标的位置    X轴， Y轴
+				var mx=e.clientX;
+				var my=e.clientY;
+				
+				//3.判定鼠标位置是否超出页面的宽度  菜单的宽度+鼠标的位置<=页面宽度
+				
+				//3-1  获取单菜单的宽度
+				var mWidth=parseInt(rightM.style.width);
+				console.log(mWidth);
+				//3-2 获取HTML标签宽度（页面宽度）
+				var pageWidth=document.documentElement.clientWidth;
+				console.log(pageWidth);
+				//2-6 把获取到的鼠标位置赋给对象
+				rightM.style.top=my+"px";
+				
+				//3-3 判定菜单是否超出页面的宽度
+				if(mx+mWidth>pageWidth){
+					rightM.style.left=(mx-mWidth-22)+"px";
+				}else{
+					rightM.style.left=mx+"px";
+				}
+				
+				
+				//阻止执行默认操作
+				return false;
+			}
+			
+		</script>
+	</body>
+</html>

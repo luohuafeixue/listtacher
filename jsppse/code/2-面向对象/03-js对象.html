@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js对象</title>
+	</head>
+	<body>
+		<!--
+			1、学习目标？
+			  掌握js对象
+			  
+			2、 js对象创建的方式(内置方法)？
+			  1） 关键字：
+			    var obj = new Object();
+			    
+			    
+			  2)函数对象：
+			    	语法： new Function(形参参数1,参数2,... ,函数体);
+			
+		-->
+		<script>
+			//通过 new 关键字创建对象
+			var obj = new Object();
+			console.log(obj);
+			obj.name = '小强';
+			console.log(obj);
+			
+			//函数对象(不常用)
+			var fn = new Function('a','b','console.log(a,b)');
+			fn('小强','和大辉');
+			
+		</script>
+	</body>
+</html>

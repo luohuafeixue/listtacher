@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--<table border="1" cellspacing="0" cellpadding="0">
+			<tr><th>姓名</th><th>性别</th><th>年龄</th></tr>
+			<tr><td>张三</td><td>Data</td><td>Data</td></tr>
+		</table>-->
+		<div id="t"></div>
+		
+		<script type="text/javascript">
+			//1.获取对象DIV
+			var t=document.getElementById("t");
+			//2.动态将表格加入到指定Div中
+			t.innerHTML+="<table border='1' cellspacing='0' cellpadding='0' id='tt'><tr><th>姓名</th><th>性别</th><th>年龄</th></tr>";
+			//3.动态获取到指定table
+			var tt=document.getElementById("tt");
+			//4.模拟数据  json
+			//var name1=[{name:value,name1:value2},"李四"];
+			var img=["124213412","1234123"];
+			//5.模拟遍历数据操作
+			for (var i = 0; i < name1.length; i++) {
+				
+				tt.innerHTML+="<tr><td>"+name1[i]+"<img src='img/"+img[i]+".jpg'/></td><td>Data</td><td>Data</td></tr>";
+			}
+			
+			t.innerHTML+="</table>";
+			
+		</script>
+	</body>
+</html>

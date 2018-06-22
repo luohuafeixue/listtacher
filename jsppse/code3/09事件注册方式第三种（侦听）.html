@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#Div{
+				width:200px;
+				height:200px;
+				background: red;
+			}
+			#Div2{
+				width:200px;
+				height:200px;
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			事件注册方式第三种（侦听）
+			注册：
+			
+			W3C标准添加事件方式:
+				事件源（事件对象）target.addEventListener(type, fn, useCapture); 
+				参数介绍:
+					target： 文档节点、document、window 或 XMLHttpRequest(ajax当中使用)。 
+					type： 字符串，事件名称，不含“on”，比如“click”、“mouseover”、“keydown”等。 
+					listener ：执行函数 。 
+					useCapture：是否使用捕捉，true:表示使用捕捉，false表示不使用捕捉 。
+					
+					
+			注意：
+				1.type值需要加引号
+				2.fn函数，可以是指定的函数名称，也可以是匿名函数
+				
+				
+			IE:
+				target.attachEvent(type, fn, useCapture);	
+				
+				参数介绍:
+					target： 文档节点、document、window 或 XMLHttpRequest(ajax当中使用)。 
+					type： 字符串，事件名称，含“on”，比如“onclick”、“onmouseover”、“onkeydown”等。 
+					listener ：执行函数 。 
+					useCapture：是否使用捕捉，true:表示使用捕捉，false表示不使用捕捉 。
+				
+			
+			注销
+			
+			W3C标准删除事件
+				target.removeEventListener(type,function,false);
+				
+				
+			IE注销事件
+				target.detachEvent(type,function)	
+				
+		-->
+		
+		<div id="Div"></div>
+		
+		<div id="Div2"></div>
+		
+		<script type="text/javascript">
+			//1.找到发生事件的对象
+			var Div=document.getElementById("Div");
+			//2.注册对象的侦听事件
+			Div.addEventListener("click",fn,false);
+			
+			//3.定义事件执行的函数
+			function fn(){
+				alert("我是DIV");
+			}
+
+//------------------------------------------------------------------
+			//IE
+				//1.找到发生事件的对象
+				var Div2=document.getElementById("Div2");
+				
+				//2.注册对象的侦听事件
+//				Div2.attachEvent("onclick",fn,false);
+			
+			
+			
+			//取消注册事件（标准）
+			
+			Div.removeEventListener("click",fn,false);
+				
+		</script>
+	</body>
+</html>

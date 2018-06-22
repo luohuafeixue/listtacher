@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量的声明</title>
+	</head>
+	<body>
+		
+		<script>
+			/*//变量的声明
+			var a = 1;
+			//变量的声明分解1
+			var a;
+			
+			//变量的声明分解2
+			a = 1;
+			
+			//声明一个数组
+			var arr = new Array();
+			
+			//向数组添加元素
+			arr[0] = 1;
+			arr[1] = 2;
+			
+			//字面量
+			var arr2 = [1,2,3,4];
+			
+			//操作数组的方法:
+			  push:向数组末尾添加新的成员
+			  join(''):将数组转化为字符串
+			  concat():合并
+			  pop():删除最后一个
+			  reverse:反转
+			  splice(位置,个数,添加的成员):删除并添加
+			  
+			
+			//遍历
+			for
+			
+			for(var i in 数组) {
+				数组[i]
+			}
+			
+			数组.forEach(function(value) {
+				直接使用 value
+			})
+			
+			数组.map(function(value,index) {
+				直接使用 value 或者 index
+			})
+			* */
+			var arr2 = ['a','b','c','d'];
+			/*console.log(arr2.join(''));
+			for(var i in arr2) {
+				console.log(arr2[i]);
+			}*/
+			
+			/*arr2.forEach(function(v) {
+				console.log(v);
+			})*/
+			
+			arr2.map(function(e,i) {
+				console.log(e,i);
+			});
+			
+			
+			/*
+			 
+			 * 对象的声明：
+			 *   var obj = new Object();
+			 * 
+			 * 添加属性和方法：
+			 *   obj.color = '红色';
+			 * 	 obj.say = function() {
+			 * 	   //函数体
+			 *   }
+			 * 
+			 *   obj[color] = '红色'
+			 * 
+			 * //在对象里使用中括号去写属性，可以在中括号中拼接
+			 * 
+			 * 对象字面量：
+			 *   var obj = {color:'红色'}
+			 * */
+			
+			var obj = {
+				color:'红色'
+			};
+			
+			//场景：需要将两个字符拼接在一起，作为一个对象的属性
+			//伪代码：obj.'co'+'lor'
+			var a = 'co',
+			  b = 'lor';
+			
+			console.log(obj[a + b]);
+		</script>
+	</body>
+</html>

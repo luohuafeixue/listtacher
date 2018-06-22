@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>json的解析</title>
+	</head>
+	<body>
+		<script>
+			/*
+			   1、API接口：后台给的一个数据请求/地址。
+			   
+			   2、json的解析：
+			   		1）、JSON.parse(json)(推荐的方式)：将json字符串转化为对象。
+			   		
+			   		2）、eval()：执行字符串中的代码。（一般不使用）
+			   			注意：会有一个安全。
+			   			
+			   		3) 函数(了解)
+			   			new Function()
+			   			
+			   		4) JSON.stringfy()：将对象转化为字符串
+			 * */
+			/*//AJAX
+			var http = new XMLHttpRequest();
+			
+			//事件
+			http.onreadystatechange = function() {
+				if(http.readyState == 4 && http.status == 200) {//请求成功
+					var res = http.responseText;
+					console.log(typeof res);
+					var data = JSON.parse(res);
+					console.log(data.name);
+				}
+			}
+			
+			http.open('GET','data.json'); //用什么方式在哪里得到数据
+			http.send();//发送请求*/
+			//eval()
+			/*var a = 'var b = 1';
+			eval(a); //var b = 1;
+//			eval('alert(1)');
+			console.log(b);
+			
+			var jsonStr = '{"name":"小花"}'; //json字符串
+			
+//			eval('var data = ' + jsonStr);
+			var str = '(' + jsonStr + ')';
+			console.log(str);
+			
+			var data = eval(str);
+			console.log(data.name);*/
+			
+//			var fn = new Function('a','console.log(a)'); 
+//			
+//			fn(1);
+			/*var jsonStr = '{"name":"小花"}'; 
+			var fn = new Function('return ' + jsonStr);//'return {"name":"小花"}'	
+			var data = fn();
+			console.log(data.name)*/
+			
+			//对象
+			var user = {
+				username:'小强',
+				password:'abc123'
+			}
+			
+			var data = JSON.stringify(user);
+			console.log(typeof data);
+		</script>
+	</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>闭包</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 
+			 * 1、学习目标？
+			 *   必须掌握闭包的概念及用法.
+			 * 
+			 * 2、闭包的概念？
+			 * 		在函数A内部创建了函数B，函数B可以使用该函数外部的变量。
+			 * 		同时函数B可以直接在全局使用。
+			 * 
+			 * 3、闭包的作用？
+			 * 		可以创建私有的变量，该变量不会被函数外部修改。
+			 * 
+			 * 4、应用场景？
+			 * 		插件封装    模块化
+			 * 
+			 * 5、如何使用闭包？
+			 * 		1）将内部的变量暴露给window对象。
+			 * 		2）return
+			 * 			将内部变量或者函数返回给全局变量。
+			 * */
+			
+			//需求：创建一个ID
+			//当调用方法的时候就会生成一个ID
+			/*var id = 0;
+			function createId() {
+				console.log(++id);
+			}
+			
+			createId();
+			createId();
+			createId();
+			id = 0;
+			createId();
+			createId();*/
+			
+			//使用闭包
+			/*(function () {
+				var id = 0;
+				window.createId = function () {
+					console.log(++id);
+				}
+			})();
+			
+			window.createId();
+			createId();
+			createId();
+			id = 0;
+			createId();
+			createId();*/
+			
+			//改进方法二：
+			var createId = (function() {
+					var id = 0;
+					return function () {
+						 return ++id;
+				}
+			})();
+			
+			console.log(createId());
+		</script>
+	</body>
+</html>

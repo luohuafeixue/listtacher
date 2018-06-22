@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:200px;
+				height:200px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<!--
+			设置和获取属性（行内样式和外部样获取）
+			
+			基本语法：（行内样式）
+				元素对象.属性名 或者 元素对象["属性名"];
+				
+			怎么获取内部样式和外部样式？（兼容性问题）
+			
+				1，在低版本的IE中，获取外部样式使用的是obj.currentStyle[attr]
+				2.非IE中,使用getComputedStyle(获取元素的对象,null)[attr]
+				
+				
+			操作元素的原始属性:
+		 		获取属性值:
+		 			元素对象.属性名;
+		 			元素对象["属性名"];
+		 		设置属性值:
+		 			元素对象.属性名=值;
+		 			元素对象["属性名"]=值;
+		 	
+		 	操作元素自定义属性:
+		 		获取属性值:
+		 			元素对象.getAttribute("属性名");
+		 		设置属性值:
+		 			元素对象.setAttribute("属性名",值);	
+			
+		-->
+		<div id="Div" style="width:200px;"></div>
+		<script type="text/javascript">
+			//找到对象
+			var Div=document.getElementById("Div");
+			
+			//1.获取行内样式
+			//console.log(Div.style.width);
+			//2.获取外部样式
+			//console.log(Div.currentStyle["width"]);
+			//console.log(getComputedStyle(Div,null)["width"]);
+			
+			//兼容性
+			/*getCss:兼容函数
+			 * obj：指定对象
+			 * attr:对象中的CSS属性
+			 */
+			
+			function getCss(obj,attr){
+				if(obj.currentStyle){
+					//IE
+			        return obj.currentStyle[attr];
+			      }else{
+			      	//非IE
+			        return window.getComputedStyle(obj,null)[attr];
+			      }
+				//return obj.currentStyle ? obj.currentStyle[attr] : getComputedStyle(obj,null)[attr];
+			}
+			console.log(getCss(Div,"width"));
+		</script>
+	</body>
+</html>

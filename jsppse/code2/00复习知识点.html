@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<!--
+		Window 对象方法
+		
+		方法：
+			alert()   //可以阻止js代码执行
+			close()    //关闭窗口
+			confirm()  //返回true  执行操作，  返回false  阻止操作
+			
+			prompt()   //用户输入框
+			
+			
+			－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+			重点：
+			  ******1.setInterval(fn,ms)   //按照指定周期执行函数或表达式，每个setInterval都有一个对应timeId;
+			  	
+			  	清除方法：clearInterval(timeId)
+			  
+			  
+			  2.setTimeout(fn,ms)   //在指定的毫秒数后调用函数或表达式，每个setTimeout都有一个对应timeId;
+			  	
+				清除方法：clearTimeout(timeId)
+				
+				
+			navigator对象	
+			
+				userAgent  //表示用户代理头部信息
+				
+				
+			location对象	  只能获取当前页面文档中的URL地址
+			
+				属性：
+				href：URL地址
+				
+				search
+				
+				
+				方法：
+				replace()  表示替换url  
+				
+				reload()
+				
+				用于刷新当前文档 。
+					location.reload()   刷新页面：相当于按F5键
+					location.reload(true)  强制刷新页：shift+F5键
+				
+				
+				location中href和replace的区别
+				
+				1.href ：可以获取和设置当前网站的URL地址，会在当前窗口的历史记录中加入一条新记录
+				
+				2.replace:  可以重新设置当前URL地址（重定向），会用新的网址替换旧的网址在历史记录中的值（不会新加入记录）
+				
+			
+			
+		history对象   用于模拟浏览器历史记录的操作
+		
+			back()	 返回到浏览器列表中当前页面之前的页面，与浏览器的“返回”功能相同
+			forward()	前进到浏览器中当前页面之后的页面，与浏览器的“前进”按钮功能相同
+			go(1)	前进一个记录
+			go(1)   后退一个记录
+			
+			
+			
+			
+		*****HTML DOM中访问HTML元素的方法*****
+		* 
+		* 1getElementById()方法
+		* 
+		* 根据指定的Id来查找，返回指定标签（对象）
+		* 
+		* 2.getElementsByTagName()
+		* 
+		* 根据指定的标签名称来查找，返回是标签的集合（数组）
+		* 
+		* 3.getElementsByName()
+		* 
+		* 根据指定的标签name属性的值来查找，返回是name属性的值的集合（数组）
+		* 
+		
+		表单对象中的属性和方法
+		
+			属性：
+				action	处理表单的页面的URL地址，对应于<form>的action属性
+				method	对应于<form>的method属性
+				
+				
+			方法：
+				submit()   提交表单
+				reset()    重置表单
+				
+				
+		单行文本对象
+			属性
+				value	设置或返回文本域的 value 属性的值。 
+				readOnly	设置或返回文本域是否应是只读的。 
+				disabled	设置或返回文本域是否应被禁用。 
+				
+				
+			方法
+			
+			focus()	在文本域上设置焦点。 
+			select()	选取文本域中的内容。 
+			
+			
+			
+		常用的属性操作
+		
+			语法：
+				元素对象.属性名 或者 元素对象["属性名"];
+				
+				
+			1.操作class属性   把CSS中定义好的样式动态的加入到指定的标签中
+				语法：
+				属性名为:className
+			
+			2.操作style的属性   
+				语法：
+					对象.style.指定的CSS样式属性     
+					
+					注意：font-size  ===   fontSize
+					
+				如:background-color	
+	-->
+	</body>
+</html>

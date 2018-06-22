@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			鼠标事件：
+				onclick: 点击事件
+				onmouseover: 鼠标进入“某对象区域”
+				onmouseout: 鼠标离开“某对象区域”
+				
+				ondblclick: 双击事件
+				onmousedown: 鼠标按下
+				onmouseup: 鼠标抬起
+				onmousemove: 鼠标移动。
+			表单事件：
+				onsubmit： 表单提交事件
+				
+				onfocus： 一个表单项获得焦点。
+				onblur: 一个表单项失去焦点
+				onchange: 一个表单项的内容的改变（通常用于select选项值的改变）
+				onreset: 	表单重置事件
+			键盘事件：
+				onkeydown： 按键按下去（尚未抬起来）
+				onkeyup：	按钮抬起来。
+				onkeypress: 	按键一次(不包含功能键，比如退格键、回车键)。
+			窗口事件：
+				onload: 网页一打开时发生——准确点说，是网页加载完毕时发生。  一个网页中只能使用一次onload事件
+		-->
+		<input type="button"  value="点我呀！！" onclick="fn()" onmouseover="m()" onmouseout="l()"/>
+		<form action="" method="post" id="form1">
+			<input type="text" name="username" id="username" value="" />
+			<input type="submit" value="提交"/>
+		</form>
+		<script type="text/javascript">
+			function fn(){
+				alert("你点我干哈？");
+				
+				
+				
+			}
+//			function m(){
+//				alert("你摸我干啥？");
+//			}
+			
+			function l(){
+				alert("你摸我，我就要跑");
+			}
+			
+			//onsubmit： 表单提交事件
+			
+			//1.找到表单
+			var myForm=document.getElementById("form1");
+			//2.注册事件   主要用于验证表单时操作
+			myForm.onsubmit=function (){
+				//alert(11);
+				if(myForm.username.value=="张三"){
+					//通过return 一个布尔值来   判断是否提交     true,表示执行默认效果  false 表示阻止默认效果
+					return true;
+				}else{
+					return false;
+				}
+			}
+			//窗口事件  
+			
+			window.onload=function(){
+				console.log("网页加载完毕时发生");
+			}
+			window.onload=function(){
+				console.log("二次    网页加载完毕时发生");
+			}
+		</script>
+	</body>
+</html>

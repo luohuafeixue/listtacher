@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>方法过载</title>
+	</head>
+	<body>
+		<script>
+			/*
+			    1、方法过载：
+			     	定义在构造函数中的方法，在对象实例化后，在内存中单独创建，浪费资源。
+			     	
+			    2、解决方法过载？
+			      	原型。
+			 * */
+			//构造函数（类）
+			function Person(name,age) {
+				this.name = name;
+				this.age = age;	
+				this.say = function() {
+					console.log(this.name + '今天还好啊！');
+				};
+			}
+			
+			//实例化一个对象
+			var p1 = new Person('小伟',18);
+			p1.say();
+			
+			var p2 = new Person('小强',16);
+			p2.say();
+			
+			console.log('p1.say == p2.say:',p1.say == p2.say);
+		</script>
+	</body>
+</html>

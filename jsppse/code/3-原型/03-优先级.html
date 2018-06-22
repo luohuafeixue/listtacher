@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>优先级</title>
+	</head>
+	<body>
+		<script>
+			/*
+			   优先级：
+			     对象 > 构造函数 > 原型
+			 * */
+			
+			function Person(name,age) {
+				this.name = name;
+				this.age = age;	
+				this.say = function() {
+					console.log(this.name + '今天还好啊！');
+				};
+			}
+			
+			//原型上添加方法
+			Person.prototype.run = function() {
+				console.log(this.name + '跑得快');
+			}
+			
+			//原型上添加属性
+//			Person.prototype.name = '小圆';
+			
+			//实例化的对象
+			var p1 = new Person('小花',16);
+			p1.name = '小刚';
+			console.log(p1.hear);
+		</script>
+	</body>
+</html>

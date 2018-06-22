@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#circle{
+				width:100px;
+				height:100px;
+				border-radius: 50px;
+				background: green;
+				position: absolute;
+				top:0px;
+				left:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="circle"></div>
+		<script type="text/javascript">
+			/*
+			 动画函数
+			 
+			 1.什么是动画？
+			 	
+			 	目标对象周期性改变属性，就可以实现动画效果
+			 	
+			 	属性：横坐标，纵坐标，颜色，大小，透明度，旋转角度等
+			 	
+			 	
+			 2.动画三要素
+			 
+			 	距离：起点与终点的差值    单位：px 
+			 	时间：目标达到最终位置时，花费的时间（总时间）  ms
+			 	速度：动画运动快慢     px/ms
+			 	
+			 	v=s/t
+			 	
+			 * */
+			//需求：让一个圆从左边移动右边
+			
+			//步骤1.获取到目标对象
+			var circle=document.getElementById("circle");
+			
+			//步骤2.获取对象的CSS属性left
+			//对象.style.left      只能获取行内样式
+			//获取外部CSS样式
+			//IE低版本中：对象.currentStyle  
+			//高版本IE和其它浏览器     window.getComputedStyle(对象)
+			
+			var eleStyle=circle.currentStyle||window.getComputedStyle(circle);
+			
+			//console.log(eleStyle.left)
+			
+			//步骤3.设置周期运动
+			var moveId=setInterval(function(){
+				//获取指定对象的left
+				var leftV=parseInt(eleStyle.left);
+				
+				//动态改变对象的left值，让它动起来(距离的叠加)
+				 leftV+=50;
+				
+				//把新获取的left值，赋给对象
+				circle.style.left=leftV+"px";
+			},50)
+				
+		</script>
+	</body>
+</html>

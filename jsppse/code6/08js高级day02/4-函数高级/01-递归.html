@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>递归</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 *  1、 递归？
+			 * 		在函数内部调用自己。
+			 * 
+			 * 2、条件：
+			 * 		进去
+			 * 		出来
+			 * 
+			 * 3、递归的应用？
+			 * 		阶乘
+			 * */
+			
+			//需求：计算 9*8*7*6*5*4*3*2*1 的结果
+			/*var sum = 1;
+			for(var i = 5; i> 0; i--) {
+				sum *=i;
+				
+			}
+			console.log(sum);*/
+			
+			//递归
+			function getSum(i) {
+				//出口
+				if(i == 1) {
+					return 1;
+				}
+				
+				//入口
+				return i * arguments.callee(i - 1)
+				
+			}
+			
+			//调用函数
+			console.log(getSum(5));
+			
+			
+			//分解
+			/*function getSum(5) {
+				
+				return 5 * getSum(i - 1)
+				
+			}
+			
+			function getSum(4) {
+				
+				return 4 * getSum(i - 1)
+				
+			}
+			
+			function getSum(3) {
+				
+				return 3 * getSum(i - 1)
+				
+			}
+			
+			function getSum(2) {
+				
+				return 2 * getSum(i - 1)
+				
+			}
+			
+			
+			function getSum(1) {
+				
+				if (i = 1) return 1 ;
+				
+			}*/
+		</script>
+	</body>
+</html>

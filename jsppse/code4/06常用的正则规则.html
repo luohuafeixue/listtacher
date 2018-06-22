@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			常用正则表达式
+			
+			1.Email地址：
+			^[a-zA-Z0-9._%+-]+@(?!.*\.\..*)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$
+			
+			2.网址：
+				 ^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+\.[a-zA-Z]{2,4}$
+				 
+			3.手机号码：^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$	 
+			
+			4.国内电话号码
+				^\d{3}-\d{8}|\d{4}-\d{7}$
+				
+			5.身份证号码
+				^\d{8,18}|[0-9x]{8,18}|[0-9X]{8,18}?$
+				
+			6.帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线)：^[a-zA-Z][a-zA-Z0-9_]{4,15}$
+			
+			7.密码(以字母开头，长度在6~18之间，只能包含字母、数字和下划线)：^[a-zA-Z]\w{5,17}$	
+		-->
+		<script type="text/javascript">
+			//1.Email地址
+			var str="xxxx@qq.com";
+			var reEmail=/^[a-zA-Z0-9._%+-]+@(?!.*\.\..*)[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+			console.log(reEmail.test(str));
+			
+			//2.网址
+			var str="http://www.baidu.com";
+			var reEmail=/^((https|http|ftp|rtsp|mms)?:\/\/)[^\s]+\.[a-zA-Z]{2,4}$/;
+			console.log(reEmail.test(str));
+			
+			//2.手机号码
+			var str="14888888888";
+			var reEmail=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+			console.log(reEmail.test(str));
+			
+			//3.固定电话号码
+			var str="051-44052228";
+			var reEmail=/^\d{3}-\d{8}|\d{4}-\d{7}$/;
+			console.log(reEmail.test(str));
+		</script>
+	</body>
+</html>

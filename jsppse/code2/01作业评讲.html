@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<!--
+		作业评讲
+		
+		3.实时显示当前日期、时间、星期几到网页上，每秒钟更新一次。
+	-->
+	<div id="time"></div>
+	<div><span id="count">5</span>秒钟后，跳转到淘宝首页</div>
+	<script type="text/javascript">
+		//找到指定的对象     放时间
+		var timeDiv=document.getElementById("time");//(DOM标准)
+		//可以直接通过HTML标记的id属性的值访问标记对应的元素对象
+		//设置时间样式
+			/*var time =new Date();
+				time=time.toLocaleString();*/
+				
+				
+		//把时间加入到指定Div中
+		//timeDiv.innerText=time;只是一个静态的值
+		setInterval(function (){
+				var time =new Date();
+				time=time.toLocaleString();
+				//把动态获取的时间插入到指定DIV中
+				timeDiv.innerText=time;
+				
+		},1000);
+		
+		console.log(time);
+		
+		
+		/*
+		  * 4.制作一个倒计时5秒钟的页面，时间显示为0时跳转到淘宝首页
+		  */
+		 
+		 //1.找到指定的DIV
+		 var count=document.getElementById("count");
+		 //2.设置开始计时时间 5秒
+		 var num=5;
+		 //3.定时器  每一秒减1
+		 setInterval(function(){
+		 	//4.动态获取指定id中的值
+		 	count.innerText=num;
+		 	
+		 	//5.当num为0时，跳转到淘宝首页
+		 	if(num==0){
+		 		location.href="http://www.taobao.com";
+		 	}
+		 	num--;
+		 },1000)
+	</script>
+	</body>
+</html>

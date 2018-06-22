@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 * 1、函数中arguments对象？
+			 * 	arguments本来就存在；
+			 * 	arguments只能在函数中使用；
+			 * 	arguments是伪数组；
+			 * 	arguments记录的是实参。
+			 * 
+			 * 
+			 * 2、面向对象
+			 * 	类：对事物进行抽象化，具有相同的特征。
+			 * 	对象：是实实在在的事物。
+			 * 
+			 * 3、创建对象对象的方法：
+			 * 	1）内置对象：
+			 * 		Object Array Function String Number ...
+			 * 		new Object();
+			 * 
+			 * 	2)自定义方法创建对象：
+			 * 		a、字面量
+			 * 			var a = {};
+			 * 
+			 * 		b、工厂模式：
+			 * 			function factoryA() {
+							var obj = new Object();
+							//
+							return obj;
+						}
+						
+					c、构造函数（类）
+					
+				4、原型
+					1）方法过载：
+						在构造函数中创建的方法，在实例化对象后，该方法会在内存中单独创建。
+						
+					2）原型(prototype)：
+						每个函数默认都存在原型属性，而且该属性还是一个对象。
+						在原型上添加的属性和方法可以直接在实例化的对象上使用。
+						
+					3)__proto__:
+					  	构造函数.prototype  === 实例化对象.__proto__
+					  	
+					4) 原型的应用：
+						构造函数.prototype
+			 * 
+			 * */
+			//定义一个函数
+			function Person(name) {
+				this.name = name;
+			}
+			
+			//原型
+			Person.prototype.height = '180';
+			Person.prototype.run = function(){}
+			
+			//var p1 = Person(); //window.Person()
+			var p1 = new Person();
+			var p2 = new Person();
+			console.log(p1);
+		</script>
+	</body>
+</html>

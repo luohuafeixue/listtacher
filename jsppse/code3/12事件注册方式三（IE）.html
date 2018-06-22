@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			IE事件注册  主要用IE8以下的版本
+			
+			IE事件注册：
+				target.attachEvent(type, listener, useCapture);
+				参数介绍:
+					target： 目标对象（事件源） 
+					type： 事件名称，含“on”，比如“onclick”、“onmouseover” 
+					listener ：执行的函数。 
+					useCapture：是否使用捕捉（冒泡事件），一般用 false  ｜ true
+					
+					
+					
+			IE注销事件
+					target.detachEvent(type,function,useCapture);
+		-->
+		<input type="button"  id="btn2" value="IE事件注册" />
+		
+		<script type="text/javascript">
+			//1找到指定的对象
+			var btn2=document.getElementById("btn2");
+			
+			//2.注册事件
+			
+			btn2.attachEvent("onclick",fn,false);
+			
+			//3.定义执行的函数
+			
+			function fn(){
+				alert("IE事件注册");
+			}
+			
+			//IE注销事件
+			btn2.detachEvent("onclick",fn,false);
+			
+		</script>
+	</body>
+</html>

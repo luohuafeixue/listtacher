@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据类型检测</title>
+	</head>
+	<body>
+		<script>
+			/*
+			   数据类型检测：
+			   typeof：检测数据的类型（string number boolean object undefined function）
+			   instanceof：检测一个引用数据类型是否属于一个对象的。返回的结果是一个boolean。
+			 * */
+			var a= null;
+			function fn() {
+				
+			}
+			console.log(typeof a);
+			console.log(typeof fn);
+			
+			var obj = {};
+			var arr = [1,2];
+			console.log('obj instanceof Object:',obj instanceof Object);
+			console.log('arr instanceof Array:',arr instanceof Array);
+			console.log('arr instanceof Object:',arr instanceof Object);
+		</script>
+	</body>
+</html>

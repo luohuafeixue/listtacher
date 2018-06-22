@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			正则表达式的方法的使用
+			
+			test()	检索字符串中指定的值。返回 true 或 false。
+		-->
+		<form action="" method="post" id="myForm">
+			<input type="text" id="userName" value="" />
+			<input type="submit" value="提交"/>
+		</form>
+		<script type="text/javascript">
+			//1找到表单对象
+			var myform=document.getElementById("myForm");
+			//2.点击提交事件
+			myform.onsubmit=function (){
+				//3.验证用户名是否合法
+				//3－1定义规则
+				var re=/张三/;
+				//3－2 获取需要验证的对象
+				var userName=document.getElementById("userName");
+				
+				//4.判定字符串是否合法
+				if(!re.test(userName.value)){
+					alert("您的用户名不合法，请重新输入");
+					userName.focus();
+					return false;
+				}
+				
+			}
+		</script>
+	</body>
+</html>

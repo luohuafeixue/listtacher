@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.有多个按钮，制作点击某个按钮，就让这个按钮隐藏掉
+		-->
+		
+		<div id="btn">
+			<input type="button" value="我是按钮1"/>
+			<input type="button" value="我是按钮2" />
+			<input type="button" value="我是按钮3" />
+		</div>
+		
+		<script type="text/javascript">
+			//1.找到input对象
+			var inputBtn=document.getElementById("btn").getElementsByTagName("input");
+			//console.log(inputBtn);
+			
+			//2.批量注册事件
+			for (var i = 0; i < inputBtn.length; i++) {
+				inputBtn[i].addEventListener('click',function (){
+					//使用this指针，表示点击哪个标签
+					this.style.display="none";
+				})
+			}
+		</script>
+	</body>
+</html>

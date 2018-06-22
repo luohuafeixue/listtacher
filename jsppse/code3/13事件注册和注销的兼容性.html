@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			问题？
+				w3c标准版在IE8以下不支持
+				w3c标准版在IE8以上，chrome,FF等都支持
+				
+				
+				IE版只能在IE5－10支持
+				
+				
+			理想状态：尽量让所有浏览器都支持	解决方案：兼容IE和w3c标准
+			
+			
+		-->
+		<input type="button" id="b1" value="事件" />
+		<script type="text/javascript">
+			//IE和其它浏览器都兼容    注册事件   注销事件
+			
+			/*handler说明：
+			 * 
+			 * obj:指定的目标对象
+			 	type:事件的名称，不带on
+			 * */
+			var handler={
+				//注册事件
+				add:function(obj,type,fn){
+					//标准版
+					if(obj.addEventListener){
+						obj.addEventListener(type,fn,false);
+					}else{
+						obj.attachEvent('on'+type,fn,false)
+					}
+				},
+				//注销事件
+				remove:function(obj,type,fn){
+					//IE版
+					if(obj.removeEventListener){
+						obj.removeEventListener(type,fn,false);
+					}else{
+						obj.detachEvent('on'+type,fn,false)
+					}
+				}
+			}
+			
+		//----------------------------------------------------------	
+			
+			//1.找到指定的对象
+			var b1=document.getElementById("b1");	
+			
+			//2.调用函数
+			
+			handler.add(b1,"click",fn);
+			
+			//3.执行的函数
+			function fn(){
+				alert(1111);
+			}
+			
+			
+			//注销事件
+			handler.remove(b1,"click",fn);
+		</script>
+	</body>
+</html>

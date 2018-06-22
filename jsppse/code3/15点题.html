@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!--
+			自定义一个浏览器右键菜单，单击右键是显示它
+			
+			oncontextmenu 事件在元素中用户右击鼠标时触发并打开上下文菜单。
+		-->
+		<ul id="rightmenu">
+			<li></li>
+		</ul>
+		<script type="text/javascript">
+			//1阻止右键菜单
+			document.documentElement.oncontextmenu=function(){
+				//2.让自己做的菜单显示出来 对象.style.display="block";
+				
+				//阻止右键菜单
+				return false;
+			}
+		</script>
+	</body>
+</html>

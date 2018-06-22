@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>IIFE</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 IIFE（立即执行函数表达式）
+			 	首先是一个没有名字函数；
+			 	表达式；
+			 	只能执行一次。
+			 	
+			 语法：
+			 	(function(){})()
+			 	
+			作用：
+				可以避免全局污染。
+			   
+			 * */
+			
+			//需求：从1加到10的结果
+			//for...
+			/*var sum = 0;
+			for(var i = 1; i < 11; i++) {
+				sum += i;
+			}
+			console.log(sum);
+			console.log(window);*/
+			
+			//改进：函数
+			/*function getSum() {
+				var sum = 0;
+				for(var i = 1; i < 11; i++) {
+					sum += i;
+				}
+				console.log(sum);
+			}
+			
+			getSum();*/
+			
+			//最终版：IIFE
+			(function () {
+				var sum = 0;
+				for(var i = 1; i < 11; i++) {
+					sum += i;
+				}
+				console.log(sum);
+			})();
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			Node对象修改和删除
+			
+				修改：
+					方法1：
+						可以通设置对应属性来修改
+						
+					方法2：通过新节点来替换旧的节点	
+					replaceChild(newnode, oldnode)  通过新节点来替换旧的节点
+					newnode：新节点
+					oldnode:旧的节点
+					
+				删除：
+				父级.removeChild(指定需要删除的子元素)	只能通过父亲干掉自己
+				remove()  自己干掉自己
+				
+				父级.hasChildNodes()	判断父级对象是否有子元素，返回true,表示有子元素，返回false，表示没有子元素
+		-->
+		<select id="city">
+			<option value="sh">上海</option>
+			<option value="nc">nanchong</option>
+			<option value="bj">北京</option>
+		</select>
+		
+		<script type="text/javascript">
+			//1.获取对象
+			var city=document.getElementById("city");
+			var ops=city.options;
+			
+			//方法1：可以通设置对应属性来修改
+				//ops[1].text="南充";
+				ops[1].value="nanchong";
+			
+			//方法2：replaceChild(newnode, oldnode)
+			var op=document.createElement("option");
+			var opText=document.createTextNode("南充");
+			op.setAttribute("value","nc");
+			op.selected="selected";
+			op.appendChild(opText);
+			city.replaceChild(op,ops[2]);
+			
+			//单个标签的删除
+			//city.removeChild(ops[1]);
+			ops[1].remove();
+			
+			//删除所有元素(推荐)
+			//city.innerHTML="";
+			
+			//通过while循环来删除
+			while(city.hasChildNodes()){
+				city.removeChild(city.firstElementChild);
+			}
+		</script>
+	</body>
+</html>

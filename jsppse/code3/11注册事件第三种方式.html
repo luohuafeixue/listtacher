@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			
+			
+			注册事件（侦听方式）
+			
+			w3c标准：
+					 
+			 target.addEventListener(type, listener, useCapture)
+			 
+			 参数介绍:
+				target： 目标对象（事件源） 
+				type： 事件名称，不含“on”，比如“click”、“mouseover” 
+				listener ：执行的函数。 
+				useCapture：是否使用捕捉（冒泡事件），一般用 false  ｜ true 
+				
+				
+			注销事件
+			
+			w3c标准：
+				target.removeEventListener(type,function,useCapture);
+			
+			
+			注意：
+				1.fn可以是匿名函数或自定义函数
+				2.type需求使用引号引起来
+				
+		-->
+		<input type="button" id="btn1" value="事件1" />
+		
+		<script type="text/javascript">
+			//1.获取指定对象
+			var btn1=document.getElementById("btn1");
+			
+			//2,在按钮上注册事件
+			
+			btn1.addEventListener("click",fn,false);
+			
+			//3.添加点击事件的执行函数
+			function fn(){
+				alert("事件1注册成功！");
+			}
+			
+			
+			//注销事件
+			
+			//btn1.removeEventListener("click",fn,false);
+		</script>
+	</body>
+</html>

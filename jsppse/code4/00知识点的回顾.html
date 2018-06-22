@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--事件的注册和捕获-->
+		
+		<script type="text/javascript">
+			
+			/*
+			 1.在标签上面直接加事件句柄
+			 
+			 如：<a href="#" onclick="fn()">百度</a>
+			 
+			 	function fn(){
+			 		代码块
+			 	}
+			 	
+			 2.通过DOM来注册事件
+			 
+			 		1.定义函数：function fn(){
+				 		代码块
+				 	}
+				 	
+				 	
+				 	2.找到需要添加事件的对象
+				 	
+				 		var Div=document.getElementById("指定的ID的值");
+				 		
+				 		Div.onclick=fn    fn指的是函数名
+				 		
+			3.通对对象添加侦听事件
+			
+				标准：
+				
+					添加事件
+						对象.addEventListener(事件的名称，需要执行的函数，冒泡事件（可选）)；
+
+					注销：
+						对象.removeEventListener(事件的名称，需要执行的函数，冒泡事件（可选）)；
+						
+						
+				
+				IE:
+					添加事件
+					
+						对象.attachEvent(事件的名称，需要执行的函数，冒泡事件（可选）)；
+						
+					注销
+						对象.detachEvent(事件的名称，需要执行的函数，冒泡事件（可选）)；
+					
+					
+					
+				差异：
+				
+					标准版：type里不带on的事件   onclick   ----  click
+					IE版：type里带on的事件        onclick   ----onclick
+					
+			 * */
+			
+		</script>
+	</body>
+</html>

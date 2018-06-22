@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			事件的概念
+			
+			什么是事件？
+				是指在HTML标签上触发的一些动作   如：鼠标点击事件，键盘操作事件等
+				
+				关键点：
+				
+				注册事件：把指定方法（动作）通过事件句柄的方式注册到指定标签上面
+				事件句柄:包含"on"+事件的名称，这个方式就是事件句柄
+				事件处理函数：当js中事件发生时，去调用的函数
+				
+				说明：
+					在HTML事件句柄中所调用的函数其实是一段js代码，
+					事件函数中封装了一个匿名函数,通过匿名函数来调用（执行）指定的事件处理函数  如：alert()
+					
+				this指针：主要用于函数内部，谁调用就是谁	
+				
+		-->
+		<input type="button" id="btn" value="提交" onclick="alert()"/>
+		<script type="text/javascript">
+			function fn(){
+				alert(1);
+			}
+			
+			var btn=document.getElementById("btn");
+			
+			console.log(btn.onclick);
+		</script>
+	</body>
+</html>

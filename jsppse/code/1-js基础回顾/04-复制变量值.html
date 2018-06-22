@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>复制变量值</title>
+	</head>
+	<body>
+		<script>
+			//第一种情况：字符串
+			var str = '123';
+			console.log(str);
+			var str2 = str;
+			str = 'abc';
+			console.log(str2); //123
+			console.log(str);
+			
+			//第二种情况：对象
+			var obj = {name:'小花'};
+			var obj2 = obj;
+			obj2.name = '打不死的小强'
+			console.log('obj2.name:',obj2.name);
+			console.log('obj.name:',obj.name);
+			
+			function fn(o) {
+				o.name = '小刚';
+			}
+			
+			fn(obj);
+			console.log(obj.name);
+		</script>
+	</body>
+</html>

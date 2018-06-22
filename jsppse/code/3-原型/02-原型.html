@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>原型</title>
+	</head>
+	<body>
+		<script>
+			/*
+			 
+			 * 1、学习目标？
+			 *   掌握原型的概念和使用方法。
+			 * 
+			 * 2、原型概念？
+			 *    JavaScript的所有function 类型的对象都有一个prototype属性。 
+			 *    这个prototype属性本身又是一个object类型的对象。
+			 * 
+			 * 3、原型的作用？
+			 *    原型是一个对象，所以可以给这个对象动态添加属性和方法。
+			 *    该原型是是函数的属性，所以对象实例化后可以直接使用该属性或者方法。
+			 * 		函数.prototype.属性名字 = 值;
+			 *      函数.prototype.方法名字 = 函数体;
+			 * 
+			 * 
+			 * 小结：
+			 *     如果给一个类定义一个方法，那么该方法添加在原型上。
+			 * */
+			
+			//构造函数（类）
+			function Person(name,age) {
+				this.name = name;
+				this.age = age;	
+				this.say = function() {
+					console.log(this.name + '今天还好啊！');
+				};
+			}
+			
+			//原型上添加方法
+			Person.prototype.run = function() {
+				console.log(this.name + '跑得快');
+			}
+			
+			console.dir(Person.prototype);
+			
+			//实例化一个对象
+			var p1 = new Person('小伟',18);
+			var p2 = new Person('小强',16);
+			
+			//使用原型上的方法
+			p1.run();
+			
+			//定义在构造函数中的方法，在对象实例化后，在内存中单独创建，浪费资源。
+			console.log('p1.say == p2.say:',p1.say == p2.say);
+			
+			//定义在原型上的方法，在对象实例化后，该方法是一个引用
+			console.log('p1.run == p2.run:',p1.run == p2.run);
+		</script>
+	</body>
+</html>

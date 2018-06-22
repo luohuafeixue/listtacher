@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>作用域的概念</title>
+	</head>
+	<body>
+		<script>
+			/*
+			   1、学习目标：
+			    	掌握作用域的概念。
+			    	
+			    2、作用域的概念？
+			    	js代码在运行时，会产生一个对象来管理变量和函数。
+			    	
+			    3、作用域的分类：
+			    	全局作用域：指的是在函数外部运行时所产生的作用域（window）;
+			    		在全局下声明的变量和函数实际上是给全局对象（window）添加属性和方法。
+			    		
+			    	局部作用域：是在函数内部运行代码时产生的一个作用域。
+			    	
+			    	块级作用域：（ES5及以前是没有的）
+			    	  ES6新增加了一个声明变量的关键字：let
+			 * 
+			 * */
+			
+			//全局
+			/*var a = '123';
+			//window.a = ''
+			
+			function fn() {
+				
+			}
+			
+			console.log(window);*/
+			
+			//局部
+			/*function fn() {
+				var a = 1;
+				console.log(a);
+			}*/
+			
+			//console.log(a);  //不能使用a
+			
+			//ES5
+			/*for(var i = 0; i < 10; i++) {
+				//console.log(i);
+			}
+			
+			console.log('for循环外部：',i);*/
+			
+			//ES6（块级作用域）
+			for(let i = 0; i < 10; i++) {
+				console.log('for循环内部：',i);
+			}
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>匿名函数和具名函数</title>
+	</head>
+	<body>
+		<script>
+			//匿名函数：就是没有名字的函数
+			var fn = function() {
+				console.log(1);
+			}
+			fn();
+			
+			
+			//具名函数
+			function bar() {
+				console.log('这是具名函数');
+			}
+			
+			setTimeout(function() {
+				console.log('这是计时器内部的匿名函数')
+			},1000);
+			
+			setTimeout(bar,2000);
+			
+			//伪代码
+			/*function setTimeout(fn,time) {
+				//时间在走
+				fn();
+			}*/
+		</script>
+	</body>
+</html>

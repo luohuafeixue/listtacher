@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			节点信息
+			
+				nodeName	节点名称
+				nodeValue	节点值
+				nodeType	节点类型
+				
+			//元素节点信息（Element)
+				
+				Element(元素)	   标签名称	   null	   1
+				
+			//属性节点信息
+			
+			getAttributeNode("属性的名称")   获取到的是属性节点
+				
+			Attribute(属性)	  属性的名称	 属性的值	 2
+			
+			//文本节点信息
+			
+			Text(文本)	#text	文本的内容	3
+		-->
+		<ul id="menu" class="test">
+			<li>菜单1</li>
+			<li class="test1">菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
+		</ul>
+		<script src="fn.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.找到对象
+			//元素节点信息（Element)
+			var m=document.getElementById("menu");
+			console.log(m.nodeName,m.nodeValue,m.nodeType);
+			
+			//属性节点信息
+			var shuxingNode=m.getAttributeNode("class");
+			console.log(typeof shuxingNode);
+			console.log(shuxingNode.nodeName,shuxingNode.nodeValue,shuxingNode.nodeType);
+			
+			//文本节点信息
+			var textNode=m.firstElementChild.firstChild;//获取ul下面的第一个元素节点，下面的第一个子节点    菜单1 
+			console.log(textNode.nodeName,textNode.nodeValue,textNode.nodeType);
+		</script>
+	</body>
+</html>

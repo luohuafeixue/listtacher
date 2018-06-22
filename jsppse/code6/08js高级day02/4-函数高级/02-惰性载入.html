@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>惰性载入</title>
+	</head>
+	<body>
+		<div id="demo">点我</div>
+		
+		<script>
+			// 定义一个命名空间
+			/*var itsource={};
+			
+			// 添加绑定事件的方法on
+			itsource.on = function( dom, type, fn){
+			   if(dom.addEventListener){//w3c
+			      dom.addEventListener( type, fn, false)
+			
+			   }else if(dom.attachEvent){// ie
+			       dom.attachEvent('on'+type,fn);
+			       
+			   }else{//原生方法
+			       dom['on'+type]=fn;
+			   }
+			}*/
+			
+			//优化：第一次执行判断判断之后，后续操作都不需要判断浏览器类型
+			/*var itsource={};
+			var ele = document.getElementById('demo');
+			// 添加绑定事件的方法on
+			itsource.on = (function( dom, type, fn){
+			   if(dom.addEventListener){//w3c
+			      return function(dom, type, fn) {
+			      	dom.addEventListener( type, fn, false)
+			      }
+			
+			   } else if (dom.attachEvent){// ie
+			       return function(dom, type, fn) {
+			       	dom.attachEvent('on'+type,fn);
+			       }
+			       
+			   } else {//原生方法
+			       return function(dom, type, fn) {
+			       	dom['on'+type]=fn;
+			       }
+			   }
+			})(ele,'click',fn);
+			
+			function fn() {
+				console.log('事件判断');
+			}
+			
+			itsource.on(ele,'click',fn);*/
+			
+			//最终版本
+			var itsource={};
+			var ele = document.getElementById('demo');
+			// 添加绑定事件的方法on
+			
+			itsource.on = function( dom, type, fn){
+			   if(dom.addEventListener){//w3c
+			      itsource.on = function(dom, type, fn) {
+			      	dom.addEventListener( type, fn, false)
+			      }
+			
+			   } else if (dom.attachEvent){// ie
+			       itsource.on = function(dom, type, fn) {
+			       	dom.attachEvent('on'+type,fn);
+			       }
+			       
+			   } else {//原生方法
+			       itsource.on = function(dom, type, fn) {
+			       	dom['on'+type]=fn;
+			       }
+			   }
+			   itsource.on(dom, type, fn);
+			};
+			
+			
+			function fn() {
+				console.log('事件判断');
+			}
+			
+			itsource.on(ele,'click',fn);
+			
+			
+			
+			
+			
+			
+			/*var obj = {};
+			obj.on = function () {
+				if(如果是chrome) {
+					obj.on = function(){};
+				} else if (是ie) {
+					obj.on = function(){};
+				} else {
+					obj.on = function(){};
+				}
+//				obj.on()
+			}
+			
+			obj.on()*/
+		</script>
+	</body>
+</html>

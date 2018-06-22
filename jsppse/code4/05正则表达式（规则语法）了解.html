@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//1.正则表达式的修饰符
+			
+			/*
+				i 执行对大小写不敏感的匹配。
+				g 执行全局匹配
+				m 执行多行匹配。
+			 * */
+			//如：var re=/定义的规则/修饰符；
+			
+			var str="bb1234556789AABBCc";
+			
+			var re=/BB/igm;
+			result=re.test(str);
+			//execStr=re.exec(str);
+			
+			console.log(re.exec(str));
+			
+			
+			//精确匹配
+			/*
+			 一个接着一个的字符 匹配（看作一个整体）
+			 * */
+			var str="123b4b5bbb6";
+			
+			var re=/bbb/igm;
+			result=re.test(str);
+			
+			console.log(result);
+			
+			
+			/*
+			 直接量字符串
+			 非字母的字符(非可见字符)匹配，需要通过反斜线(\)作为前缀进行转义
+			 
+			 \n	查找换行符。
+			 \f	查找换页符。
+			 \r	查找回车符。
+			 
+			 
+			 * */
+			 var str="非字母的字符(非可见字符)\n匹配";
+			 var re=/\n/;
+			 console.log(re.test(str));
+			 /*
+			  限定位置
+			  
+			  n$	匹配任何结尾为 n 的字符串。
+			  ^n	匹配任何开头为 n 的字符串。
+			  
+			  
+			  * */
+			 
+			 var str ="21234567";
+			 var re=/^1/;
+			 console.log(re.test(str));//true
+			 
+			 var str ="13866666666";
+			 var re=/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+			 console.log(re.test(str));
+			 
+			 
+			 /*
+			  特殊字符
+			  
+			  ^  $  ．  *  +  ?  =  !  ：  |  ＼  ／  (  )  [  ]  {  } 具有特殊含义,需要使用转义符号（\）
+			  
+			  常用用户上传文本格式的匹配
+			  * */
+			 
+			 var str="xxx.JPG";
+			 var re=/\.jpg$/i;
+			 console.log(re.test(str));
+			 
+			 /*
+			  匹配一类字符  [abc]  匹配的可以是单个的  a  b  c   abc  只有任何一个字符串都可以
+			  
+			  [abc]	查找方括号之间的任何字符。
+			  [^abc]	查找任何不在方括号之间的字符。
+			  [0-9]	查找任何从 0 至 9 的数字。
+			  
+			  
+			  元字符类 
+			    .	查找单个字符，除了换行和行结束符。
+				\w	查找单词字符。
+				\W	查找非单词字符。
+				\d	查找数字。
+				\D	查找非数字字符。
+				\s	查找空白字符。
+				\S	查找非空白字符。
+				\b	匹配单词边界。
+				\B	匹配非单词边界。
+			  
+			  * */
+			 
+			 var str="a1452b35";
+			 var re=/[abc]/;
+			 console.log(re.test(str));
+			 
+			 /*
+			  限定字符（重复的次数）
+			  
+			n+	匹配任何包含至少一个 n 的字符串。
+			n*	匹配任何包含零个或多个 n 的字符串。
+			n?	匹配任何包含零个或一个 n 的字符串。
+			n{X}	匹配包含 X 个 n 的序列的字符串。
+			n{X,Y}	匹配包含 X 或 Y 个 n 的序列的字符串。
+			n{X,}	匹配包含至少 X 个 n 的序列的字符串。
+			
+			  * */
+			 var str ="11111";
+			 var re=/^\d{2,}$/;
+			 console.log(re.test(str));
+			 
+			 /*
+			  选择（多选一）
+			  字符“|”用于分隔供选择的字符。例如，/ab|cd|ef/可以匹配字符串“ab”，也可以匹配字“cd”,或者是ef；。 “|” 可以理解为或者的意思
+			  
+			  * */
+	</script>
+	</body>
+</html>

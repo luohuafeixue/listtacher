@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			Node对象
+			
+			Node对象:查询，添加，修改（替换），删除，克隆节点
+			
+			1.查询（属性）：
+				parentNode	父节点
+				
+				firstChild	列表中的第一个节点(文本节点也算在内)
+				firstElementChild   找到的是第一个元素节点
+				
+				lastChild	列表中的最后一个节点
+				lastElementChild 找到的是最后一个元素节点
+				
+				
+				childNodes	所有子节点的列表
+				
+				previousSibling	上一个兄弟节点
+				previousElementSibling 上一个兄弟元素节点
+				
+				nextSibling	下一个兄弟节点
+				nextElementSibling  下一个兄弟元素节点
+		-->
+		<ul id="menu">
+			<li>菜单1</li>
+			<li>菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
+		</ul>
+		<script src="js/fn.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//1.获取指定对象
+			var m=document.getElementById("menu");
+			var lis=m.getElementsByTagName("li");
+			
+			//找父亲
+			l(m.parentNode);
+			l(lis[0].parentNode);
+			
+			//找大儿子
+			l(m.firstChild);
+			l(m.firstElementChild);//找到的是第一个元素节点
+			
+			//找幺儿子
+			l(m.lastChild);
+			l(m.lastElementChild);
+			
+			//找所有儿子
+			l(m.childNodes);
+			
+			//找兄弟
+			l(lis[2].nextElementSibling);
+			l(lis[2].previousElementSibling);
+			
+			l(m.firstChild);
+			
+			
+		</script>
+	</body>
+</html>

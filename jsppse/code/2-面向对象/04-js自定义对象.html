@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js自定义对象</title>
+	</head>
+	<body>
+		<script>
+			/*
+			  1、自定义对象：(重点)
+			    1）字面量：
+			      var obj = {};
+			      
+			      	缺陷：无法重复的创建大量的具有相同结构的对象.
+			      	
+			    2)工厂模式：
+			      	采用函数来封装创建对象的逻辑细节。
+			      	
+			      	缺陷：不能解决对象识别问题。
+			      	
+			    3）构造函数（重点重点）
+			      	构造函数可以看做是一个类；
+			      	函数名字首字母大写（大驼峰）;
+			      	构造函数内部使用this关键字；
+			      	使用new的方法调用函数。
+			      	解决了对象识别问题.
+			      
+			*/
+			/*var p1 = {name:'小伟',age:28};
+			var p2 = {name:'小强',age:80};
+			var p3 = {name:'小罗',age:8};*/
+			//...
+			
+			//工厂模式
+			/*function createPerson1(name,age) {
+				//创建对象的逻辑细节
+				var obj = new Object();
+				obj.name = name;
+				obj.age = age;
+				obj.say = function() {
+					console.log(obj.name + '今天还好啊！');
+				};
+				return obj;
+			}
+			
+			function createPerson2(name,age) {
+				//创建对象的逻辑细节
+				var obj = new Object();
+				obj.name = name;
+				obj.age = age;
+				obj.say = function() {
+					console.log(obj.name + '今天还好啊！');
+				};
+				return obj;
+			}
+			
+			//对象
+			var p1 = createPerson1('小黄',18);
+			var p2 = createPerson2('小新',16);
+			p1.say();
+			
+			console.log(p1 instanceof createPerson1);*/
+			
+			//构造函数(类)
+			function Person1(name,age) {
+				this.name = name;
+				this.age = age;	
+				this.say = function() {
+					console.log(this.name + '今天还好啊！');
+				};
+			}
+			
+			function Person2(name,age) {
+				this.name = name;
+				this.age = age;	
+				this.say = function() {
+					console.log(this.name + '今天还好啊！');
+				};
+			}
+			
+//			var p1 = Person('小强',18); //直接调用函数，this指向window
+//			console.log(p1.name);
+
+			//实例化对象
+			var p1 = new Person1('小强',18);
+			var p2 = new Person2('小伟',28);
+			p1.say();
+			p2.say();
+			console.log(p1 instanceof Person1);
+			console.log(p2 instanceof Person2);
+			console.log(p1 instanceof Person2);
+			console.log('p1 instanceof Person2:',p1 instanceof Person2);
+		</script>
+	</body>
+</html>
