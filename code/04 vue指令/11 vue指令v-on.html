@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+           v-once: 只渲染一次，以后模型数据改变，也不会重新渲染
+           v-pre:  跳过编译，直接把模板当做字符串输出
+           v-cloak: 知道编译结束，才显示，避免直接以字符串方式显示目标表达式，形如：{{message}}
+    -->
+
+    <div id="app">
+        <p v-cloak>{{message}}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+               message: 'hello vue！'
+            }
+        });
+
+    </script>
+
+</body>
+</html>

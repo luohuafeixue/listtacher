@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+
+    <!--
+        语法：
+            注意： v-for放在哪个标签上，就会遍历生成哪个标签
+            v-for：
+            <div v-for="元素 in 数据源">
+            </div>
+            1） 数组(***)
+                <div v-for="(v,i) in list"></div>
+                v：遍历出来的值
+                i：遍历出来的索引
+
+            2） 对象(***)
+                 <div v-for="(item,key) in obj"></div>
+                 <div v-for="(item,key，index) in obj"></div>
+                 item： 遍历出来的值
+                 key：  遍历出来的健名
+                 index：索引
+
+            3）数字
+
+            4）字符串
+
+    -->
+
+    <div id="app">
+        <h1>v-for遍历数组</h1>
+        <ul>
+            <li v-for="(v,i) in list">
+                {{i}}---{{v}}
+            </li>
+        </ul>
+
+        <h1>v-for遍历对象</h1>
+        <ul>
+            <li v-for="(item,key,index) in user">
+                {{index}}---{{key}}---{{item}}
+            </li>
+        </ul>
+
+        <h1>v-for遍历数字</h1>
+        <ul>
+            <li v-for="v in num">
+                {{v}}
+            </li>
+        </ul>
+        <h1>v-for遍历字符串</h1>
+        <ul>
+            <li v-for="(v,i) in str">
+                {{i}}--{{v}}
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: ['html', 'css', 'javascript', 'vue'],
+                user: {
+                    name: '张三',
+                    age: 18,
+                    sex: '男'
+                },
+                num: 5,
+                str: 'itsource'
+            }
+        })
+    </script>
+
+</body>
+</html>

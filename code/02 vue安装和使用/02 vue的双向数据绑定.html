@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue使用</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+       小结：
+            el：  把vue实例 挂载到 id等于app的视图
+            data： 数据，是一个对象（对象里面可以是对象 数组 字符串）
+            methods: 可以写方法 而且this指向vue实例本身（vm）
+
+    -->
+
+
+    <!--视图界面 View-->
+    <div id="app">
+        {{ message }}<br/>
+        <input type="text" v-model="message"><br/>
+        {{user.name}}
+    </div>
+
+    <!--<p id="myp">-->
+        <!--{{ message }}-->
+    <!--</p>-->
+
+<!--测试核心对象-->
+<script>
+    // 数据模型(Model)
+    var datas = {
+        message: 'hello vue!!',
+        user: {
+            name: '张三',
+            age: 18
+        }
+    };
+
+    // 创建vue实例(ViewModel) 是视图和模型之间的胶水
+    var vm = new Vue({
+        el: '#app',    // 关联视图（页面的dom）挂载在页面上
+        data: datas,   // 关联数据
+        methods: {
+            hello: function() {
+                return this.user;
+            },
+            date: function () {
+                return new Date().toLocaleString()
+            },
+            func: function() {
+
+            }
+        }
+    });
+
+
+
+
+//    new Vue({
+//        el: '#myp',    // 关联视图（页面的dom）
+//        data: datas   // 关联数据
+//    })
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+    <!--引入vue-->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+    <!--视图界面-->
+    <div id="app">
+        <p>{{ message }}</p>
+        <input v-model='message'/>
+    </div>
+
+<script type='text/javascript'>
+    // vue实例
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'Hello Vue!'
+        }
+    })
+</script>
+</body>
+</html>

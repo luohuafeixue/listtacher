@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+         v-on：帮点事件   形如：  v-on:click
+         简写： @事件的类型       @click
+         注意：
+            事件方式，直接@click='函数名'
+            内联函数，如果需要传事件对象，需要使用$event
+            事件和函数中的this就是当前的vue实例
+
+         事件修饰符：
+              stop：阻止事件冒泡
+              prevent： 阻止浏览器默认行为
+              enter：   回车
+    -->
+
+    <div id="app">
+        <input type="text" @keyup.13="submit">
+
+        {{num}}<br/>
+       表达式： <button v-on:click.stop="num++">按钮1</button>
+        事件：<button @click="add">按钮2</button>
+        内联函数：<button v-on:click="add($event)">按钮3</button>
+        内联函数：<button v-on:click="add('hello', $event)">按钮4</button
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+              num: 0
+            },
+            methods: {
+                add(msg,e){
+//                    console.log(e.target);
+//                    console.log(msg);
+                    console.log(this);
+                    return this.num++
+                },
+                submit(){
+                    console.log('表单已经提交')
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+        什么是指令？
+            带有v-前缀的是vue的内置指令
+            指令都写在标签上面
+            指令的值是一个表达式 （可以直接输出 也可以逻辑运算）
+
+        作用：
+            指令表达式的值（从vue实例来=》从数据库来）改变，就可以改变dom
+            一个标签上可以出现多个指令
+            只在vue实例挂载的但当前的dom，范围内有效
+    -->
+    <!--
+        注意：
+            表达式：会直接输出字符串，不识别标签
+            v-text：会直接输出字符串，不识别标签
+            v-html：可以识别html标签，安装标签的样式输出
+    -->
+
+    <div id="app">
+        表达式： <span>哈哈：{{ message }}</span><br/>
+        指令v-text： <span v-text="message"></span><br/>
+        指令v-html： <span v-html="message"></span>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: '<h1>这里是指令的入门</h1>'
+            }
+        })
+    </script>
+
+</body>
+</html>

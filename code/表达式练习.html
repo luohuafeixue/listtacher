@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="app">
+			<p>{{num1+num2}}</p>
+			<p>{{ num2.toFixed(2) }}</p>
+			<p>{{date}}</p>
+			
+		</div>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script>
+			 var vm=new Vue({
+			 	el:"#app",
+			 	data:{
+			 		num1:99,
+			 		num2:80.999,
+			 		date:new Date().toLocaleString()
+			 	}
+			 	
+			 })
+		</script>
+	</body>
+</html>

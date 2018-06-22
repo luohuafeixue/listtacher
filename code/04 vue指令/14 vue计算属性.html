@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+            计算属性：computed
+               computed，用法和methods一模一样，但是函数必须有返回值
+               计算属性里面的方法的依赖（数据),如果没有变化，它里面的方法的结果有缓存，不需要重新执行
+               可以大幅度提升性能
+            methods，会重新执行函数
+    -->
+
+    <div id="app">
+        <h2>原始值：</h2>
+        <p>{{message}}</p>
+        <h2>表达式</h2>
+        {{ message.split("").reverse().join("") }}
+        <h2>methods方法</h2>
+        {{ reverse(message) }}
+        <h2>过滤器</h2>
+        {{message|reverseFilter}}
+        <h2>计算属性computed方法</h2>
+        {{ reverseCom }}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+             message: 'itsource'
+            },
+            methods: {
+                reverse(v){
+                    return v.split("").reverse().join("")
+                }
+            },
+            computed: {
+                reverseCom(){
+                    return this.message.split("").reverse().join("")
+                }
+            },
+            filters: {
+                reverseFilter(value){
+                    return value.split("").reverse().join("");
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>

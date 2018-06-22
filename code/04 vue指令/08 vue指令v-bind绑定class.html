@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+        .red{
+            color: red;
+        }
+        .font{
+            font-size:20px;
+            font-weight: bold;
+        }
+        .active{
+            background-color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+          v-bind: 可以绑定dom的属性，让属性变成动态属性，接受后端穿的参数（数据）
+          v-bind: 可以简写，只写一个冒号，加在标签的属性的前面
+        可以绑定class，让class变成动态的值
+           
+    -->
+
+    <div id="app">
+        <ul>
+        <li :class="classname">成都</li>
+        <li :class="myclass">重庆</li>
+        <li>广州</li>
+      </ul>
+
+        <ul>
+        <li :class="{active:activeno==0}">成都</li>
+         <li :class="{active:activeno==1}">重庆</li>
+        <li :class="{active:activeno==2}">广州</li>
+       </ul>
+        <button id="btn">按钮</button>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                 classname: "red",
+                 myclass: ["red","font"],
+                  activeno: 0
+            }
+        });
+        setInterval(function () {
+            vm.activeno++;
+            if(vm.activeno>2){
+                vm.activeno = 0;
+            }
+        },200);
+        btn.onclick = function () {
+            vm.activeno++;
+            if(vm.activeno>2){
+                vm.activeno = 0;
+            }
+        }
+    </script>
+
+</body>
+</html>

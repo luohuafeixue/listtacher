@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+           v-model，主要用来双向数据绑定
+
+            .lazy - 取代 input 监听 change 事件
+            .number - 输入字符串转为数字
+            .trim - 输入首尾空格过滤
+
+        注意：
+            主要使用在： input 单选框 多选框  文本域
+
+           
+    -->
+
+    <div id="app">
+        {{message}}<br/>
+        <input type="text" v-model.lazy="message">
+
+          <h1>绑定到type=checkbox的input表单元素</h1>
+          打篮球:<input type="checkbox" v-model="checkboxValue" value="打篮球"><br/>
+          踢足球:<input type="checkbox" v-model="checkboxValue" value="踢足球"><br/>
+          data中的值:{{checkboxValue}}
+
+        <h1>绑定到type=radio的input表单元素</h1>
+          打篮球:<input type="radio" v-model="radioValue" value="打篮球"><br/>
+          踢足球:<input type="radio" v-model="radioValue" value="踢足球"><br/>
+          data中的值:{{radioValue}}
+
+        h1>绑定到textarea的元素</h1>
+          个人简介:<textarea v-model="textareaValue"></textarea><br/>
+          data中的值:{{textareaValue}}
+
+
+         <h1>绑定到单选的select的元素</h1>
+          技能:<select v-model="skills">
+                <option value="java">java</option>
+                <option value="php">php</option>
+                <option value=".net">.net</option>
+              </select><br/>
+          data中的值:{{skills}}
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+               message: 'hello vue！',
+                checkboxValue:[ '打篮球'],
+                radioValue: '打篮球',
+                textareaValue: '这是初始的值',
+                skills: 'java'
+            }
+        });
+
+    </script>
+
+</body>
+</html>

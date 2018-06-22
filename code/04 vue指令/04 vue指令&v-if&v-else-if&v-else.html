@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <!--
+        什么是指令？
+            带有v-前缀的是vue的内置指令
+            指令都写在标签上面
+            指令的值是一个表达式 （可以直接输出 也可以逻辑运算）
+
+        作用：
+            指令表达式的值（从vue实例来=》从数据库来）改变，就可以改变dom
+            一个标签上可以出现多个指令
+            只在vue实例挂载的但当前的dom，范围内有效
+    -->
+    <!--
+        注意：
+            v-show:  通过控制display属性的值，来控制显示和隐藏
+            v-if:  会操作dom，如果是true，直接显示，如果是false，会删除dom
+            总结：对于需要频繁的切换显示和隐藏 用 v-show（不操作dom，性能更好）
+                  对于不需要改变的，或者改变比较少的，可以用v-if
+
+
+           v-else-if:  前面必须有v-if 或者 v-else-if，从上往下，只需要满足一个，后面的就不执行
+           v-else： 前面必须有v-if 或者 v-else-if，不需要表达式
+    -->
+
+    <div id="app">
+        <p v-if="show">这里是你看见的内容</p>
+        <p v-if="hide">这里是你看不见的内容</p>
+        <!--<p v-if="score>90">优秀</p>-->
+        <!--<p v-if="score>80 && score<90">良好</p>-->
+        <!--<p v-if="score>70 && score<80">中等</p>-->
+        <!--<p v-if="score>60 && score<70">及格</p>-->
+        <!--<p v-if="score<60">不及格</p>-->
+
+
+        <p v-if="score>90">优秀</p>
+        <p v-else-if="score>80">良好</p>
+        <p v-else-if="score>70">中等</p>
+        <p v-else-if="score>60">及格</p>
+        <p v-else>不及格</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                show: true,
+                hide: false,
+                score: 91
+            }
+        })
+    </script>
+
+</body>
+</html>

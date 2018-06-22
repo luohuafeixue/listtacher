@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+          v-bind: 可以绑定dom的属性，让属性变成动态属性，接受后端穿的参数（数据）
+          v-bind: 可以简写，只写一个冒号，加在标签的属性的前面
+        可以绑定class，让class变成动态的值
+
+        注意：
+            v-bind绑定style的时候，基本上都是对象的形式
+            b-bind的表达式也可以是： 数组
+           
+    -->
+
+    <div id="app">
+        <ul>
+       <li :style="{color:fontColor,fontSize:fontSize+'px'}">成都</li>
+       <li :style="styleObject">重庆</li>
+       <li :style="styleArr[2]">广州</li>
+     </ul>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                fontColor: 'red',
+                fontSize: 30,
+                styleObject: {
+                    color: 'blue',
+                    fontSize: '20px'
+                },
+                styleArr:[
+                    {
+                        color: 'red'
+                    },
+                    {
+                        color: 'blue'
+                    },
+                    {
+                        color: 'green'
+                    }
+                ]
+            }
+        });
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表达式</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>表达式</h2>
+        <p>什么是表达式？将数据输出到html中，用双大括号形式{{ 输出表达式 }}</p>
+        <p>输出里面包含 逻辑运算 变量 字符串</p>
+
+        <p>{{users}}</p><br/>
+        <p>{{users.name}}</p>
+        <p>{{users.age}}</p>
+        <p>{{users.getAge()}}</p>
+        <p>{{getName()}}</p>
+         <p>{{newStr()}}</p>
+
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                str: '这是一个字符串',
+                users: {
+                    name: '张三',
+                    age: 18,
+                    getAge: function () {
+                        return this.age;
+                    }
+                }
+            },
+            methods: {
+                newStr: function() {
+                    return this.str.substr(1);
+                },
+                getName: function () {
+                    return this.users.name;
+                }
+            }
+        })
+
+    </script>
+
+</body>
+</html>

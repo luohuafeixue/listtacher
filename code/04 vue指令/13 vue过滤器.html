@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+         v-on：帮点事件   形如：  v-on:click
+         简写： @事件的类型       @click
+         注意：
+            事件方式，直接@click='函数名'
+            内联函数，如果需要传事件对象，需要使用$event
+            事件和函数中的this就是当前的vue实例
+
+         事件修饰符：
+              stop：阻止事件冒泡
+              prevent： 阻止浏览器默认行为
+              enter：   回车
+    -->
+
+    <div id="app">
+        <p>{{message|toUpperCase}}</p>
+        <p>{{message|firstUpperCase}}</p>
+        <p>{{message|wordFirstUpperCase}}</p>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+              message: 'hello itsource welcome to vue'
+            },
+            methods: {
+                add(msg,e){
+//                    console.log(e.target);
+//                    console.log(msg);
+                    console.log(this);
+                    return this.num++
+                },
+                submit(){
+                    console.log('表单已经提交')
+                }
+            },
+            filters: {
+                // 全部大写
+                toUpperCase: function (value) {
+                 return value.toUpperCase();
+              },
+                //首字母大写
+                firstUpperCase: function (value) {
+                 return value.charAt(0).toUpperCase() + value.slice(1);
+              },
+                // 单词首字符大写
+                wordFirstUpperCase: function (value) {
+          var words = value.split(" ");
+          var newWords = words.map(function (t) {
+               return t.charAt(0).toUpperCase() + t.slice(1)
+          });
+          return newWords.join(" ");          }
+            }
+        });
+
+    </script>
+
+</body>
+</html>

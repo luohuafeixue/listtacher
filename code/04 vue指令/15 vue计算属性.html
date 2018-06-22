@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >vue指令入门</title>
+    <!--引入vue-->
+    <script src="../js/vue.js"></script>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        语法：
+            计算属性：computed
+               computed，用法和methods一模一样，但是函数必须有返回值
+               计算属性里面的方法的依赖（数据),如果没有变化，它里面的方法的结果有缓存，不需要重新执行
+               可以大幅度提升性能
+            methods，会重新执行函数
+    -->
+
+    <div id="app">
+        <p>
+            {{fullName}}
+        </p>
+        <button @click="change()">改名</button>
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Stef',
+                lastName: 'jobs'
+            },
+            methods: {
+                change() {
+                    this.fullName = 'Tom Cook'
+                }
+            },
+            computed: {
+                fullName: {
+                    // getter函数 只是用来取值
+                    get() {
+                        console.log('取值')
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    // setter函数，用来设置值
+                    set(newName) {
+                        console.log('设值')
+                        var names = newName.split(' ');
+                        this.firstName = names[0];
+                        this.lastName = names[names.length-1];
+                    }
+                }
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
