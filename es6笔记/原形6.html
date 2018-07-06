@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+     <script>
+          function f1(){
+
+          }
+     
+          f1.prototype={
+                name:'wangxing',
+                age:"5",
+
+                src:function(){
+                    alert(this.name)
+                }
+          }
+        var p3=new f1();
+         console.log(p3 instanceof Object)
+         console.log(p3 instanceof f1)
+         console.log(p3.constructor instanceof f1)
+         console.log(p3.constructor instanceof Object)
+     </script>
+</body>
+</html>
