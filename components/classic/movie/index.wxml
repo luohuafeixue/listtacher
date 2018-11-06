@@ -1,0 +1,5 @@
+<view class="contengts-vlisr" hidden="{{hidden}}">
+ <image src="{{img}}" class="classi-ima"/>
+ <image src="./images/movie@tag.png" class="tag"/>
+ <text class="content">{{content}}</text>
+</view>

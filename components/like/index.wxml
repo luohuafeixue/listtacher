@@ -1,0 +1,4 @@
+<view class="contengts" bind:tap="onlinke">
+<image src="{{like?yesSrc:noSrc}}" />
+<text>{{count}}</text>
+</view>
